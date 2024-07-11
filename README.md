@@ -1,4 +1,4 @@
-# KguSandBox 레포 입니다!
+# KEB Project 레포 입니다!
 
 
 SpringBoot 사용법
