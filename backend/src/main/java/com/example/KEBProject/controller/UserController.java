@@ -1,22 +1,32 @@
 package com.example.KEBProject.controller;
 
 import com.example.KEBProject.entity.User;
-import com.example.KEBProject.repository.UserRepository;
+import com.example.KEBProject.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("/users")
 public class UserController {
-    private final UserRepository userRepository;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/joinform")
+    public String join() {
+        return "join"; // join.html 템플릿을 반환
     }
 
-    @PostMapping("/users/save")
-    public void personSave(@RequestBody User user) {
-        userRepository.save(user);
-
+    @PostMapping("/join")
+    public String join(User user) {
+        // Checkbox 처리
+        if (user.getIsExpert() == null) {
+            user.setIsExpert(false);
+        }
+        userService.createUser(user);
+        return "redirect:/users/joinform";
     }
 }
-
-
