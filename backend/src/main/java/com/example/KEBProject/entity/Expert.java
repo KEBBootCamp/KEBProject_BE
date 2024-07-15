@@ -1,6 +1,7 @@
 package com.example.KEBProject.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -36,6 +37,8 @@ public class Expert {
     private Float ratingAverage;
 
     @OneToOne
-    @JoinColumn(name = "engineer_id", referencedColumnName = "user_id", insertable = false, updatable = false)
+    @MapsId
+    @JoinColumn(name = "engineer_id")
+    @JsonBackReference
     private User user;
 }

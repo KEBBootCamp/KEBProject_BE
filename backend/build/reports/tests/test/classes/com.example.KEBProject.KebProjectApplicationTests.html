@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.240s</div>
+<div class="counter">0.256s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.240s</td>
+<td class="success">0.256s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,8 +87,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>13:54:22.674 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.KEBProject.KebProjectApplicationTests]: KebProjectApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-13:54:22.711 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.KEBProject.KebProjectApplication for test class com.example.KEBProject.KebProjectApplicationTests
+<pre>16:22:07.212 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.KEBProject.KebProjectApplicationTests]: KebProjectApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:22:07.249 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.KEBProject.KebProjectApplication for test class com.example.KEBProject.KebProjectApplicationTests
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -98,19 +98,23 @@
 
  :: Spring Boot ::                (v3.3.0)
 
-2024-07-15T13:54:22.852+09:00  INFO 4724 --- [KEBProject] [    Test worker] c.e.K.KebProjectApplicationTests         : Starting KebProjectApplicationTests using Java 17.0.10 with PID 4724 (started by jeong-uimin in /Users/jeong-uimin/Desktop/KEB/KEBProject/backend)
-2024-07-15T13:54:22.853+09:00  INFO 4724 --- [KEBProject] [    Test worker] c.e.K.KebProjectApplicationTests         : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-07-15T13:54:23.124+09:00  INFO 4724 --- [KEBProject] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-07-15T13:54:23.144+09:00  INFO 4724 --- [KEBProject] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 4 JPA repository interfaces.
-2024-07-15T13:54:23.315+09:00  INFO 4724 --- [KEBProject] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-07-15T13:54:23.340+09:00  INFO 4724 --- [KEBProject] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-07-15T13:54:23.355+09:00  INFO 4724 --- [KEBProject] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-07-15T13:54:23.473+09:00  INFO 4724 --- [KEBProject] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-07-15T13:54:23.488+09:00  INFO 4724 --- [KEBProject] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-07-15T13:54:23.668+09:00  INFO 4724 --- [KEBProject] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@714c74eb
-2024-07-15T13:54:23.669+09:00  INFO 4724 --- [KEBProject] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-07-15T13:54:23.706+09:00  WARN 4724 --- [KEBProject] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-07-15T13:54:24.059+09:00  INFO 4724 --- [KEBProject] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-15T16:22:07.376+09:00  INFO 9132 --- [KEBProject] [    Test worker] c.e.K.KebProjectApplicationTests         : Starting KebProjectApplicationTests using Java 17.0.10 with PID 9132 (started by jeong-uimin in /Users/jeong-uimin/Desktop/KEB/KEBProject/backend)
+2024-07-15T16:22:07.376+09:00  INFO 9132 --- [KEBProject] [    Test worker] c.e.K.KebProjectApplicationTests         : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-07-15T16:22:07.622+09:00  INFO 9132 --- [KEBProject] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-15T16:22:07.644+09:00  INFO 9132 --- [KEBProject] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 4 JPA repository interfaces.
+2024-07-15T16:22:07.797+09:00  INFO 9132 --- [KEBProject] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-15T16:22:07.813+09:00  INFO 9132 --- [KEBProject] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-15T16:22:07.825+09:00  INFO 9132 --- [KEBProject] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-15T16:22:07.933+09:00  INFO 9132 --- [KEBProject] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-15T16:22:07.943+09:00  INFO 9132 --- [KEBProject] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-15T16:22:08.103+09:00  INFO 9132 --- [KEBProject] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@adc8683
+2024-07-15T16:22:08.104+09:00  INFO 9132 --- [KEBProject] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-15T16:22:08.148+09:00  WARN 9132 --- [KEBProject] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-15T16:22:08.486+09:00  INFO 9132 --- [KEBProject] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table expert 
+       drop 
+       foreign key FK23f0o3hxqm11lrgkn6hylfr16
 Hibernate: 
     alter table inspection 
        drop 
@@ -171,6 +175,11 @@ Hibernate:
         primary key (user_id)
     ) engine=InnoDB
 Hibernate: 
+    alter table expert 
+       add constraint FK23f0o3hxqm11lrgkn6hylfr16 
+       foreign key (engineer_id) 
+       references user (user_id)
+Hibernate: 
     alter table inspection 
        add constraint FKbnv6www1ffehlgfdsu2xrgwql 
        foreign key (customer_id) 
@@ -180,10 +189,10 @@ Hibernate:
        add constraint FKoqtk4nfocbd7e87aqlykvecn4 
        foreign key (engineer_id) 
        references expert (engineer_id)
-2024-07-15T13:54:24.197+09:00  INFO 4724 --- [KEBProject] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-07-15T13:54:24.385+09:00  WARN 4724 --- [KEBProject] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-07-15T13:54:24.394+09:00  INFO 4724 --- [KEBProject] [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2024-07-15T13:54:24.597+09:00  INFO 4724 --- [KEBProject] [    Test worker] c.e.K.KebProjectApplicationTests         : Started KebProjectApplicationTests in 1.826 seconds (process running for 2.252)
+2024-07-15T16:22:08.664+09:00  INFO 9132 --- [KEBProject] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-15T16:22:08.848+09:00  WARN 9132 --- [KEBProject] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-15T16:22:08.857+09:00  INFO 9132 --- [KEBProject] [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-07-15T16:22:09.055+09:00  INFO 9132 --- [KEBProject] [    Test worker] c.e.K.KebProjectApplicationTests         : Started KebProjectApplicationTests in 1.753 seconds (process running for 2.165)
 </pre>
 </span>
 </div>
@@ -195,7 +204,7 @@ Hibernate:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.8</a> at 2024. 7. 15. 오후 1:54:24</p>
+<a href="http://www.gradle.org">Gradle 8.8</a> at 2024. 7. 15. 오후 4:22:09</p>
 </div>
 </div>
 </body>
