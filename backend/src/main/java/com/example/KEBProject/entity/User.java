@@ -1,6 +1,7 @@
 package com.example.KEBProject.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -43,4 +44,7 @@ public class User {
     @Column(name = "is_expert", nullable = false)
     private Boolean isExpert;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Expert expert;
 }
