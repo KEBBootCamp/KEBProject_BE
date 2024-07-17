@@ -26,7 +26,8 @@ public class Inspection {
     @Column(name = "customer_id", nullable = false, length = 20)
     private String customerId;
 
-    @Column(name = "engineer_id", length = 20)
+    @NonNull
+    @Column(name = "engineer_id", nullable = false, length = 20)
     private String engineerId;
 
     @NonNull
@@ -42,15 +43,15 @@ public class Inspection {
 
     @NonNull
     @Column(name = "checked", nullable = false)
-    private Boolean checked = false;
+    private Boolean checked;
 
     @NonNull
     @Column(name = "complete", nullable = false)
-    private Boolean complete = false;
+    private Boolean complete;
 
     @NonNull
     @Column(name = "is_rate", nullable = false)
-    private Boolean isRate = false;
+    private Boolean isRate;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "user_id", insertable = false, updatable = false)
@@ -59,17 +60,4 @@ public class Inspection {
     @ManyToOne
     @JoinColumn(name = "engineer_id", referencedColumnName = "engineer_id", insertable = false, updatable = false)
     private Expert engineer;
-
-    @PrePersist
-    protected void onPrePersist() {
-        if (this.checked == null) {
-            this.checked = false;
-        }
-        if (this.complete == null) {
-            this.complete = false;
-        }
-        if (this.isRate == null) {
-            this.isRate = false;
-        }
-    }
 }

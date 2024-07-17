@@ -1,6 +1,7 @@
 package com.example.KEBProject.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -19,10 +20,6 @@ public class Expert {
     @Column(name = "engineer_id", nullable = false, length = 20)
     private String engineerId;
 
-    @NonNull
-    @Column(name = "customer_id", nullable = false, length = 20)
-    private String customerId;
-
     @Column(name = "engineer_career")
     private Integer engineerCareer;
 
@@ -37,16 +34,11 @@ public class Expert {
 
     @NonNull
     @Column(name = "rating_average", nullable = false)
-    private Float ratingAverage = 0.0f;
+    private Float ratingAverage;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "user_id", insertable = false, updatable = false)
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "engineer_id")
+    @JsonBackReference
     private User user;
-
-    @PrePersist
-    protected void onPrePersist() {
-        if (this.ratingAverage == null) {
-            this.ratingAverage = 0.0f;
-        }
-    }
 }
