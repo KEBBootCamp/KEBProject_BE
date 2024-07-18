@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Expert Information</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>User ID</th>
+        <td th:text="${expertDTO.userId}"></td>
+    </tr>
+    <tr>
+        <th>User Name</th>
+        <td th:text="${expertDTO.userName}"></td>
+    </tr>
+    <tr>
+        <th>User Phone</th>
+        <td th:text="${expertDTO.userPhonenumber}"></td>
+    </tr>
+    <tr>
+        <th>Engineer Career</th>
+        <td th:text="${expertDTO.engineerCareer}"></td>
+    </tr>
+    <tr>
+        <th>Engineer Picture</th>
+        <td th:text="${expertDTO.engineerPicture}"></td>
+    </tr>
+    <tr>
+        <th>Engineer Certification</th>
+        <td th:text="${expertDTO.engineerCertification}"></td>
+    </tr>
+    <tr>
+        <th>Engineer Profile</th>
+        <td th:text="${expertDTO.engineerProfile}"></td>
+    </tr>
+</table>
+</body>
+</html>
