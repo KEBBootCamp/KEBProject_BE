@@ -54,4 +54,13 @@ public class InspectionService {
     return inspectionRepository.findById(matchingId)
         .orElseThrow(() -> new IllegalArgumentException("Invalid matching ID: " + matchingId));
   }
+
+  public void updateInspectionChecked(int matchingId, boolean checked) {
+
+    Inspection inspection = getInspectionById(matchingId);
+
+    inspection.setChecked(checked);
+
+    inspectionRepository.save(inspection);
+  }
 }

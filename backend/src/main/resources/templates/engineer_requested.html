@@ -2,11 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Engineer Requests</title>
+  <title>전문가 받은 요청 리스트</title>
 </head>
 <body>
 <h2>Engineer Requests</h2>
-<div>
-</div>
+<ul>
+  <li th:each="inspection : ${inspections}">
+    <a th:href="@{/inspection_detail/{matchingId}(matchingId=${inspection.matchingId})}">
+      <span th:text="${inspection.model}"></span>
+    </a>
+  </li>
+</ul>
 </body>
 </html>
