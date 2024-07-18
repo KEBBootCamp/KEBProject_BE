@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Experts</title>
+</head>
+<body>
+<h1>List of Experts</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>User ID</th>
+        <th>Name</th>
+        <th>Nickname</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Expert Career</th>
+        <th>Expert Picture</th>
+        <th>Expert Certification</th>
+        <th>Expert Profile</th>
+        <th>Rating Average</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate through the list of ExpertDTO objects -->
+    <tr th:each="expert : ${expertDto}">
+        <td th:text="${expert.userId}"></td>
+        <td th:text="${expert.userName}"></td>
+        <td th:text="${expert.userNickname}"></td>
+        <td th:text="${expert.userEmail}"></td>
+        <td th:text="${expert.userPhonenumber}"></td>
+        <td th:text="${expert.engineerCareer}"></td>
+        <td th:text="${expert.engineerPicture}"></td>
+        <td th:text="${expert.engineerCertification}"></td>
+        <td th:text="${expert.engineerProfile}"></td>
+        <td th:text="${expert.ratingAverage}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
