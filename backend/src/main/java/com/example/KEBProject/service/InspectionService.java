@@ -50,11 +50,14 @@ public class InspectionService {
     return inspectionRepository.save(inspection);
   }
 
+  //매칭 아이디
   public Inspection getInspectionById(int matchingId) {
     return inspectionRepository.findById(matchingId)
         .orElseThrow(() -> new IllegalArgumentException("Invalid matching ID: " + matchingId));
   }
 
+
+  //검수 수락 여부
   public void updateInspectionChecked(int matchingId, boolean checked) {
 
     Inspection inspection = getInspectionById(matchingId);

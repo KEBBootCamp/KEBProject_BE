@@ -57,56 +57,6 @@ public class InspectionController {
     }
   }
 
-  // 검수 신청 부분
-  @PostMapping("/matching/request")
-  @ResponseBody
-  public Map<String, String> submitInspection(@RequestBody Map<String, String> request) {
-    String customerId = request.get("customerId");
-    String model = request.get("model");
-    String place = request.get("place");
-    String inspectDate = request.get("inspectDate");
-
-    LocalDate localDate = LocalDate.parse(inspectDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-    Timestamp timestamp = Timestamp.valueOf(localDate.atStartOfDay());
-
-    Inspection inspection = inspectionService.createInspection(customerId, model, place, timestamp);
-    int matchingId = inspection.getMatchingId();
-
-
-    return Map.of("redirectUrl", "/inspection_submit/" + matchingId);
-  }
-
-//  @PostMapping("/matching/request")
-//  @ResponseBody
-//  public Map<String, String> submitInspection(@RequestBody Map<String, String> request) {
-//    String customerId = request.get("customerId");
-//    String model = request.get("model");
-//    String place = request.get("place");
-//    String inspectDate = request.get("inspectDate");
-//
-//    LocalDate localDate = LocalDate.parse(inspectDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-//    Timestamp timestamp = Timestamp.valueOf(localDate.atStartOfDay());
-//
-//    String redirectUrl = String.format("/inspection_submit?customerId=%s&model=%s&place=%s&inspectDate=%s",
-//        customerId, model, place, inspectDate);
-//
-//    return Map.of("redirectUrl", redirectUrl);
-//  }
-
-  // inspection_submit 페이지
-  @GetMapping("/inspection_submit/{matchingId}")
-  @ResponseBody
-  public Map<String, String> showInspectionSubmitPage(@PathVariable int matchingId) {
-    Inspection inspection = inspectionService.getInspectionById(matchingId);
-
-    Map<String, String> response = new HashMap<>();
-    response.put("userId", inspection.getCustomerId());
-    response.put("model", inspection.getModel());
-    response.put("place", inspection.getPlace());
-    response.put("inspectDate", inspection.getInspectDate().toLocalDateTime().toLocalDate().toString());
-
-    return response;
-  }
 
   // 엔지니어 검수 요청 목록
   @GetMapping("/matching/request/list")
