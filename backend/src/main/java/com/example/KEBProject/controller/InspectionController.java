@@ -108,40 +108,6 @@ public class InspectionController {
     return response;
   }
 
-  // 엔지니어 검수 요청 목록
-  @GetMapping("/matching/request/list")
-  @ResponseBody
-  public String showEngineerRequested(@PathVariable String userId, Model model) {
-    List<Inspection> inspections = inspectionService.getInspectionsForExpert(userId);
-    model.addAttribute("inspections", inspections);
-    return "engineer_requested";
-  }
-
-  // 엔지니어 검수 요청 상세보기
-  @GetMapping("/inspection_detail/{matchingId}")
-  public String checkInspection(@RequestParam int matchingId, Model model) {
-    Inspection inspection = inspectionService.getInspectionById(matchingId);
-
-    model.addAttribute("inspection", inspection);
-
-    return "inspection_detail";
-  }
-
-  // 엔지니어 검수 수락 여부
-  @PostMapping("/matching/request/accpet/{matchingId}")
-  @ResponseBody
-  public Map<String, String> checkInspection(@PathVariable int matchingId, @RequestBody Map<String,Boolean> request) {
-    boolean checked = request.get("checked");
-
-    Inspection inspection = inspectionService.getInspectionById(matchingId);
-    if (inspection != null){
-      inspectionService.updateInspectionChecked(matchingId, checked);
-    }
-
-    return Map.of("status","succeess");
-  }
-
-
   private User getCurrentUser(String userId) {
     return userService.getUserById(userId);
   }
