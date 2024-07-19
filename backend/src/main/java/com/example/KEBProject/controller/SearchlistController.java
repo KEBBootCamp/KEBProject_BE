@@ -37,11 +37,6 @@ public class SearchlistController {
             return "errorPage";
         }
     }
-    @GetMapping("/list")
-    public String expertList(Model model){
-        List<ExpertDTO> expertDto = expertListService.showExpertsDto();
-        model.addAttribute("expertDto", expertDto);
-        return "expertList";
-    }
+    
 }
 
