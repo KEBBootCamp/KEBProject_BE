@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Inspection_Form</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h2>Inspection Form</h2>
+<form id="inspectionForm">
+
+  <label for="customerId">고객명:</label>
+  <input type="text" id="customerId" name="customerId" th:value="${userId}" readonly>
+
+  <label for="model">검수 모델:</label>
+  <input type="text" id="model" name="model"><br><br>
+
+  <label for="place">검수 장소:</label>
+  <input type="text" id="place" name="place"><br><br>
+
+  <label for="inspectDate">검수 날짜:</label>
+  <input type="date" id="inspectDate" name="inspectDate"><br><br>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+    $(document).ready(function() {
+        $('#inspectionForm').on('submit', function(event) {
+            event.preventDefault(); // 폼의 기본 제출을 방지
+
+            // 폼 데이터 수집
+            var formData = {
+                customerId: $('#customerId').val(),
+                model: $('#model').val(),
+                place: $('#place').val(),
+                inspectDate: $('#inspectDate').val()
+            };
+
+            // AJAX 요청
+            $.ajax({
+                url: '/matching/request',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    window.location.href = response.redirectUrl;
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error submitting form:', error);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
