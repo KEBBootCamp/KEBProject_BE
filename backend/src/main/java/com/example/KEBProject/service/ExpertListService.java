@@ -38,20 +38,4 @@ public class ExpertListService {
                 })
                 .collect(Collectors.toList());
     }
-
-    public ExpertDTO findByUserId(String userId) {
-        Optional<Expert> expert = expertListRepository.findByUserUserId(userId);
-        Optional<User> user = userRepository.findById(userId);
-
-        if (expert.isPresent() && user.isPresent()) {
-            Expert expertEntity = expert.get();
-            User userEntity = user.get();
-
-            return new ExpertDTO(expertEntity, userEntity);
-        } else {
-            return null;
-        }
-    }
-
-
 }
