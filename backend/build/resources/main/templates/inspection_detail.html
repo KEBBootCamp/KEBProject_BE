@@ -19,14 +19,13 @@
 
 <script>
     function handleResponse(response) {
-        var engineerId = document.getElementById('engineerId').value
 
         if (response.status === 'accept') {
             alert('수락했습니다.');
-            window.location.href = '/matching/' + engineerId;
+            window.location.href = '/matching'
         } else if (response.status === 'rejected') {
             alert('거절했습니다.');
-            window.location.href = '/matching/' +engineerId;
+            window.location.href = '/matching'
         } else {
             alert('실패했습니다.');
         }

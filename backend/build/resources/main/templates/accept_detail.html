@@ -18,11 +18,10 @@
 
   <script>
       function handleResponse(response) {
-          var engineerId = document.getElementById('engineerId').value
 
           if (response.status === 'complete') {
               alert('수락했습니다.');
-              window.location.href = '/matching/accept/list/' + engineerId;
+              window.location.href = '/matching/accept/list'
           } else {
               alert('실패했습니다.');
           }

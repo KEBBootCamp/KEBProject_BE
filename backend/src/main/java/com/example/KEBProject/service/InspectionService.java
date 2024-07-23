@@ -17,12 +17,10 @@ public class InspectionService {
 
 
   private final InspectionRepository inspectionRepository;
-  private final UserRepository userRepository;
 
   @Autowired
-  public InspectionService(InspectionRepository inspectionRepository, UserRepository userRepository) {
+  public InspectionService(InspectionRepository inspectionRepository) {
     this.inspectionRepository = inspectionRepository;
-    this.userRepository = userRepository;
   }
 
 

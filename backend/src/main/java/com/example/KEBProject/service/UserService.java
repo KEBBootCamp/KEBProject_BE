@@ -31,9 +31,4 @@ public class UserService {
         return user.orElse(null);
     }
 
-    public User getUserById(String userId) {
-        Optional<User> userOptional = userRepository.findById(userId);
-
-        return userOptional.orElse(null);
-    }
 }

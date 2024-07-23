@@ -5,6 +5,7 @@ import com.example.KEBProject.entity.User;
 import com.example.KEBProject.service.ExpertService;
 import com.example.KEBProject.service.InspectionService;
 import com.example.KEBProject.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,10 +35,11 @@ public class InspectionController {
 
 
   //처음 화면
-  @RequestMapping("/pages")
   @GetMapping("/matching")
-  public String showInspectionForm(@PathVariable String userId, Model model) {
-    User currentUser = getCurrentUser(userId);
+  public String showInspectionForm(Model model, HttpSession session) {
+    //세션에서 가져오기
+    User currentUser = (User) session.getAttribute("user");
+    //User currentUser = getCurrentUser(userId); 기존 url방식
 
     if (currentUser == null) {
       // 유저가 null일 경우에 대한 처리 (예: 로그인 페이지로 리다이렉트)
@@ -62,16 +64,6 @@ public class InspectionController {
       model.addAttribute("inspections", inspections);
       return "inspection_form";
     }
-  }
-
-
-  // 엔지니어 검수 요청 목록
-  @GetMapping("/matching/request/list")
-  @ResponseBody
-  public String showEngineerRequested(@PathVariable String userId, Model model) {
-    List<Inspection> inspections = inspectionService.getInspectionsForExpert(userId);
-    model.addAttribute("inspections", inspections);
-    return "engineer_requested";
   }
 
   // 엔지니어 검수 요청 상세보기
@@ -117,9 +109,18 @@ public class InspectionController {
   }
 
   //수락한 검수 요청 리스트 목록 출력
-  @GetMapping("/matching/accept/list/{userId}")
-  public String showAcceptRequested(@PathVariable String userId, Model model) {
-    List<Inspection> inspections = inspectionService.getInspectionsForExpert(userId);
+  @GetMapping("/matching/accept/list")
+  public String showAcceptRequested(Model model , HttpSession session) {
+    User currentUser = (User) session.getAttribute("user");
+
+    if (currentUser == null || !currentUser.getIsExpert()) {
+      return "redirect:/login";
+    }
+
+    //전체 리스트 출력부분
+    List<Inspection> inspections = inspectionService.getInspectionsForExpert(currentUser.getUserId());
+
+    //수락한 검수요청만 리스트에 나오게하는 부분
     List<Inspection> acceptInspections = inspections.stream()
             .filter(inspection -> inspection.getChecked())
                 .toList();
@@ -155,11 +156,6 @@ public class InspectionController {
 
     return Map.of("status","failed");
 
-  }
-
-
-  private User getCurrentUser(String userId) {
-    return userService.getUserById(userId);
   }
 
 }
