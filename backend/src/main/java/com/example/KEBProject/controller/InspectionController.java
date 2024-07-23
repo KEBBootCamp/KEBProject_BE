@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,8 +34,8 @@ public class InspectionController {
 
 
   //처음 화면
-
-  @GetMapping("/matching/{userId}")
+  @RequestMapping("/pages")
+  @GetMapping("/matching")
   public String showInspectionForm(@PathVariable String userId, Model model) {
     User currentUser = getCurrentUser(userId);
 
@@ -47,7 +48,13 @@ public class InspectionController {
 
     if (currentUser.getIsExpert()) {
       List<Inspection> inspections = inspectionService.getInspectionsForExpert(currentUser.getUserId());
-      model.addAttribute("inspections", inspections);
+
+      //수락한 검수요청은 목록에서 사라지도록 설정
+      List<Inspection> acceptInspections = inspections.stream()
+                  .filter(inspection -> !inspection.getChecked())
+                  .toList();
+      model.addAttribute("inspections", acceptInspections);
+
       return "engineer_requested";
     }
     else {
@@ -69,26 +76,85 @@ public class InspectionController {
 
   // 엔지니어 검수 요청 상세보기
   @GetMapping("/inspection_detail/{matchingId}")
-  public String checkInspection(@RequestParam int matchingId, Model model) {
+  public String checkInspection(@PathVariable int matchingId, Model model) {
     Inspection inspection = inspectionService.getInspectionById(matchingId);
 
-    model.addAttribute("inspection", inspection);
-
-    return "inspection_detail";
+    if (inspection != null) {
+      model.addAttribute("inspection", inspection);
+      return "inspection_detail";
+    } else {
+      return "redirect:/matching";
+    }
   }
 
   // 엔지니어 검수 수락 여부
-  @PostMapping("/matching/request/accpet/{matchingId}")
+  @PostMapping("/matching/request/accept/{matchingId}")
   @ResponseBody
   public Map<String, String> checkInspection(@PathVariable int matchingId, @RequestBody Map<String,Boolean> request) {
-    boolean checked = request.get("checked");
 
     Inspection inspection = inspectionService.getInspectionById(matchingId);
     if (inspection != null){
-      inspectionService.updateInspectionChecked(matchingId, checked);
+      inspectionService.updateInspectionChecked(matchingId, true);
+
+      return Map.of("status","accept");
     }
 
-    return Map.of("status","succeess");
+    return Map.of("status","failed");
+
+  }
+
+  //엔지니어 검수 요청 거절시 DB 삭제
+  @PostMapping("/matching/request/reject/{matchingId}")
+  @ResponseBody
+  public Map<String, String> rejectInspection(@PathVariable int matchingId, @RequestBody Map<String,Boolean> request) {
+    Inspection inspection = inspectionService.getInspectionById(matchingId);
+    if (inspection != null){
+      inspectionService.deleteInspectionChecked(matchingId);
+      return Map.of("status","rejected");
+    }
+
+    return Map.of("status","failed");
+  }
+
+  //수락한 검수 요청 리스트 목록 출력
+  @GetMapping("/matching/accept/list/{userId}")
+  public String showAcceptRequested(@PathVariable String userId, Model model) {
+    List<Inspection> inspections = inspectionService.getInspectionsForExpert(userId);
+    List<Inspection> acceptInspections = inspections.stream()
+            .filter(inspection -> inspection.getChecked())
+                .toList();
+    model.addAttribute("inspections", acceptInspections);
+    return "accept_requested";
+  }
+  
+  
+  //수락한 검수 요청 상세 -> complete 여부 확인하는 버튼
+  @GetMapping("/accept_detail/{matchingId}")
+  public String detailInspection(@PathVariable int matchingId, Model model) {
+    Inspection inspection = inspectionService.getInspectionById(matchingId);
+
+    if (inspection != null) {
+      model.addAttribute("inspection", inspection);
+      return "accept_detail";
+    } else {
+      return "redirect:/accept_requested";
+    }
+  }
+
+  //엔지니어 검수 완료(Complete)
+  @PostMapping("/matching/request/complete/{matchingId}")
+  @ResponseBody
+  public Map<String, String> completeInspection(@PathVariable int matchingId, @RequestBody Map<String,Boolean> request) {
+
+    Inspection inspection = inspectionService.getInspectionById(matchingId);
+    if (inspection != null){
+      inspectionService.updateInspectionComplete(matchingId, true);
+
+      return Map.of("status","complete");
+    }
+
+    return Map.of("status","failed");
+
   }
 
 

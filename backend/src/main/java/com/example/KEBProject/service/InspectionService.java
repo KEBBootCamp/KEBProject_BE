@@ -57,12 +57,31 @@ public class InspectionService {
   }
 
 
-  //검수 수락 여부
+  //검수 요청 수락 여부
   public void updateInspectionChecked(int matchingId, boolean checked) {
 
     Inspection inspection = getInspectionById(matchingId);
 
     inspection.setChecked(checked);
+
+
+    inspectionRepository.save(inspection);
+  }
+
+  //검수 요청 거절
+  public void deleteInspectionChecked(int matchingId) {
+
+    Inspection inspection = getInspectionById(matchingId);
+
+    inspectionRepository.delete(inspection);
+  }
+
+  //검수 완료 여부
+  public void updateInspectionComplete(int matchingId, boolean complete) {
+
+    Inspection inspection = getInspectionById(matchingId);
+
+    inspection.setComplete(complete);
 
     inspectionRepository.save(inspection);
   }
