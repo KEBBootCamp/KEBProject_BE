@@ -24,7 +24,11 @@
     <tbody>
     <!-- Iterate through the list of ExpertDTO objects -->
     <tr th:each="expert : ${expertDto}">
-        <td th:text="${expert.userId}"></td>
+        <td>
+            <a th:href="@{'/expert/' + ${expert.userId}}">
+                <span th:text="${expert.userId}"></span>
+            </a>
+        </td>
         <td th:text="${expert.userName}"></td>
         <td th:text="${expert.userNickname}"></td>
         <td th:text="${expert.userEmail}"></td>
