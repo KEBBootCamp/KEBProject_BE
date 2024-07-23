@@ -27,7 +27,7 @@ public class ExpertListService {
         this.userRepository = userRepository;
     }
 
-    public List<ExpertDTO> showExpertsDto() {
+    public List<ExpertDTO> findAllExpertsDto() {
         List<Expert> experts = expertListRepository.findAll();
 
         return experts.stream()
