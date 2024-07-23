@@ -22,9 +22,6 @@ public class Inspection {
     @Column(name = "matching_id", nullable = false)
     private Integer matchingId;
 
-    //customerid, engineerid 널여부 일단 true로 해놓았습니다
-    //검수신청시 고객은 값을 입력하고 데이터에 저장하는 부분에서 
-    //엔지니어아이디가 널이라는 오류로인해
     @NonNull
     @Column(name = "customer_id", nullable = true, length = 20)
     private String customerId;
