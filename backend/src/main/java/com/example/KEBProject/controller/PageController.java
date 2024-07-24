@@ -17,4 +17,21 @@ public class PageController {
         model.addAttribute("user", new User());
         return "join"; // join.html 템플릿을 반환
     }
+
+    @GetMapping("/loginform")
+    public String loginForm(Model model) {
+        model.addAttribute("user", new User());
+        return "login"; // login.html 템플릿을 반환
+    }
+
+    @GetMapping("/home")
+    public String homePage(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("user", user);
+        } else {
+            model.addAttribute("user", null);
+        }
+        return "home"; // home.html 템플릿을 반환
+    }
 }

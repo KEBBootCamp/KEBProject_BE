@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -24,7 +27,7 @@ public class InspectionController {
     this.inspectionService = inspectionService;
   }
 
-
+  //TC-4 검수 조건 검색
   @GetMapping("/matching")
   public String showInspectionForm(Model model, HttpSession session) {
     //세션에서 가져옴
@@ -51,4 +54,28 @@ public class InspectionController {
       return "inspection_form";
     }
   }
+
+  //TC -4 검수 조건 검색 전달
+  @PostMapping("/insepctionInfo")
+  public String submitInspectionForm(@RequestParam("customerId") String customerId,
+                                     @RequestParam("model") String model,
+                                     @RequestParam("place") String place,
+                                     @RequestParam("inspectDateTime") String inspectDateTime,
+                                     Model inspectionModel) {
+    if (inspectDateTime == null || inspectDateTime.isEmpty()) {
+      return "expertNotFound"; // 검수 날짜가 입력되지 않았을 경우 처리
+    }
+
+    LocalDate localDate = LocalDate.parse(inspectDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"));
+    Timestamp timestamp = Timestamp.valueOf(localDate.atStartOfDay());
+
+    inspectionModel.addAttribute("customerId", customerId);
+    inspectionModel.addAttribute("model", model);
+    inspectionModel.addAttribute("place", place);
+    inspectionModel.addAttribute("inspectDate", inspectDateTime);
+
+    return "show";
+  }
+
+
 }

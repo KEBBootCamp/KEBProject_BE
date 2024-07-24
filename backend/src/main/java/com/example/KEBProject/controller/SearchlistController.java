@@ -17,6 +17,7 @@ public class SearchlistController {
     @Autowired
     private ExpertListService expertListService;
 
+    //TC-5 엔지니어 목록
     @GetMapping("/list")
     public String expertList(Model model){
         List<ExpertDTO> expertDto = expertListService.showExpertsDto();
@@ -25,6 +26,9 @@ public class SearchlistController {
     }
 
 
+
+
+    //TC-6 엔지니어 상세정보
     @GetMapping("/{engineerId}")
     public String expertInfo(@PathVariable("engineerId") String engineerId, Model model) {
         try {
@@ -40,6 +44,6 @@ public class SearchlistController {
             return "errorPage";
         }
     }
-    
+
 }
 
