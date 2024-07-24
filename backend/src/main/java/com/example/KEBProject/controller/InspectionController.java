@@ -176,5 +176,3 @@ public class InspectionController {
 
 }
 
-
-  //isRate작성부분
