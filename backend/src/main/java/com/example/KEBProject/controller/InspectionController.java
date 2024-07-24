@@ -11,24 +11,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class InspectionController {
 
   private final InspectionService inspectionService;
-  private final UserService userService;
 
 
   @Autowired
   public InspectionController(InspectionService inspectionService, UserService userService, ExpertService expertService ) {
     this.inspectionService = inspectionService;
-    this.userService =  userService;
   }
 
 
@@ -58,24 +51,4 @@ public class InspectionController {
       return "inspection_form";
     }
   }
-
-
-  // inspection_submit 페이지
-//  @GetMapping("/inspection_submit/{matchingId}")
-//  @ResponseBody
-//  public Map<String, String> showInspectionSubmitPage(@PathVariable int matchingId) {
-//    Inspection inspection = inspectionService.getInspectionById(matchingId);
-//
-//    Map<String, String> response = new HashMap<>();
-//    response.put("userId", inspection.getCustomerId());
-//    response.put("model", inspection.getModel());
-//    response.put("place", inspection.getPlace());
-//    response.put("inspectDate", inspection.getInspectDate().toLocalDateTime().toLocalDate().toString());
-//
-//    return response;
-//  }
-
-//  private User getCurrentUser(String userId) {
-//    return userService.getUserById(userId);
-//  }
 }
