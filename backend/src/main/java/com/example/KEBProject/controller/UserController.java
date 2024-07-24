@@ -60,7 +60,6 @@ public class UserController {
 
         // 사용자와 전문가 엔터티 저장
         userService.createUser(user);
-
         return ResponseEntity.status(HttpStatus.CREATED).body("Expert user and details created successfully");
     }
 
@@ -88,5 +87,17 @@ public class UserController {
     @GetMapping("/showUsers")
     public List<User> showUsers() {
         return userService.showUsers();
+    }
+
+    //세션 확인 url
+    @GetMapping("/show/sess")
+    @ResponseBody
+    public ResponseEntity<?> showSessionUser(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No session");
+        } else {
+            return ResponseEntity.ok(user);
+        }
     }
 }
