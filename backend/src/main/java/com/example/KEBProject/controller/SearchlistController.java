@@ -24,15 +24,11 @@ public class SearchlistController {
 
     @Autowired
     private ExpertListService expertListService;
-    @Autowired
-    private InspectionService inspectionService;
 
-    @PostMapping("/list")
+    @GetMapping("/list")
     public String expertList(Model model){
-
-        List<ExpertDTO> expertDto = expertListService.findAllExpertsDto();
+        List<ExpertDTO> expertDto = expertListService.showExpertsDto();
         model.addAttribute("expertDto", expertDto);
-
 
         return "expertList";
     }

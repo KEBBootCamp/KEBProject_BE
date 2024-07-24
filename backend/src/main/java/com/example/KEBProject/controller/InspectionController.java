@@ -45,11 +45,13 @@ public class InspectionController {
     }
     model.addAttribute("userId", currentUser.getUserId());
 
+    //엔지니어 검수 수락 리스트
     if (currentUser.getIsExpert()) {
       List<Inspection> inspections = inspectionService.getInspectionsForExpert(currentUser.getUserId());
       model.addAttribute("inspections", inspections);
       return "engineer_requested";
     }
+    //엔지니어 프로필 리스트
     else {
       List<Inspection> inspections = inspectionService.getInspectionsForCustomer(currentUser.getUserId());
       model.addAttribute("inspections", inspections);
@@ -57,39 +59,23 @@ public class InspectionController {
     }
   }
 
-  @PostMapping("/matching/request")
-  @ResponseBody
-  public Map<String, String> submitInspection(@RequestBody Map<String, String> request) {
-    String customerId = request.get("customerId");
-    String model = request.get("model");
-    String place = request.get("place");
-    String inspectDate = request.get("inspectDate");
-
-    LocalDate localDate = LocalDate.parse(inspectDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-    Timestamp timestamp = Timestamp.valueOf(localDate.atStartOfDay());
-
-    String redirectUrl = String.format("/inspection_submit?customerId=%s&model=%s&place=%s&inspectDate=%s",
-        customerId, model, place, inspectDate);
-
-    return Map.of("redirectUrl", redirectUrl);
-  }
 
   // inspection_submit 페이지
-  @GetMapping("/inspection_submit/{matchingId}")
-  @ResponseBody
-  public Map<String, String> showInspectionSubmitPage(@PathVariable int matchingId) {
-    Inspection inspection = inspectionService.getInspectionById(matchingId);
+//  @GetMapping("/inspection_submit/{matchingId}")
+//  @ResponseBody
+//  public Map<String, String> showInspectionSubmitPage(@PathVariable int matchingId) {
+//    Inspection inspection = inspectionService.getInspectionById(matchingId);
+//
+//    Map<String, String> response = new HashMap<>();
+//    response.put("userId", inspection.getCustomerId());
+//    response.put("model", inspection.getModel());
+//    response.put("place", inspection.getPlace());
+//    response.put("inspectDate", inspection.getInspectDate().toLocalDateTime().toLocalDate().toString());
+//
+//    return response;
+//  }
 
-    Map<String, String> response = new HashMap<>();
-    response.put("userId", inspection.getCustomerId());
-    response.put("model", inspection.getModel());
-    response.put("place", inspection.getPlace());
-    response.put("inspectDate", inspection.getInspectDate().toLocalDateTime().toLocalDate().toString());
-
-    return response;
-  }
-
-  private User getCurrentUser(String userId) {
-    return userService.getUserById(userId);
-  }
+//  private User getCurrentUser(String userId) {
+//    return userService.getUserById(userId);
+//  }
 }

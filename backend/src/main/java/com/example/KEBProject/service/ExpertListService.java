@@ -38,4 +38,15 @@ public class ExpertListService {
                 })
                 .collect(Collectors.toList());
     }
+    public List<ExpertDTO> showExpertsDto() {
+        List<Expert> experts = expertListRepository.findAll();
+
+        return experts.stream()
+                .map(expert -> {
+                    Optional<User> user = userRepository.findById(expert.getEngineerId());
+                    return user.map(value -> new ExpertDTO(expert, value))
+                            .orElse(null); // or handle the case where user is not found
+                })
+                .collect(Collectors.toList());
+    }
 }
