@@ -158,4 +158,23 @@ public class InspectionController {
 
   }
 
+  //검수완료된 목록 고객이 확인
+  @GetMapping("/matching/end")
+  public String showEndRequested(Model model , HttpSession session) {
+    User currentUser = (User) session.getAttribute("user");
+
+    if (currentUser == null) {
+      return "redirect:/login";
+    }
+
+    List<Inspection> endInspections = inspectionService.getEndInspection(currentUser.getUserId());
+    model.addAttribute("inspections", endInspections);
+
+    return "end_requested";
+  }
+
+
 }
+
+
+  //isRate작성부분

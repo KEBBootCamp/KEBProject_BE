@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>검수 완료 리스트</title>
+  <style>
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      table, th, td {
+          border: 1px solid black;
+      }
+      th, td {
+          padding: 10px;
+          text-align: left;
+      }
+      th {
+          background-color: #f2f2f2;
+      }
+  </style>
+</head>
+<body>
+<h1>검수 완료 리스트</h1>
+<table>
+  <thead>
+  <tr>
+    <th>매칭 ID</th>
+    <th>모델</th>
+    <th>장소</th>
+    <th>검수 날짜</th>
+    <th>검수 상태</th>
+    <th>리뷰 작성</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="inspection : ${inspections}">
+    <td th:text="${inspection.matchingId}">매칭 ID</td>
+    <td th:text="${inspection.model}">모델</td>
+    <td th:text="${inspection.place}">장소</td>
+    <td th:text="${#dates.format(inspection.inspectDate, 'yyyy-MM-dd HH:mm:ss')}">검수 날짜</td>
+    <td th:text="${inspection.complete ? '완료' : '미완료'}">검수 상태</td>
+
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
