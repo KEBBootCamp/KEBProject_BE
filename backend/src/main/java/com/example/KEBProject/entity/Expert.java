@@ -39,7 +39,6 @@ public class Expert {
     @OneToOne
     @MapsId
     @JoinColumn(name = "engineer_id")
-//    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     @JsonBackReference
     private User user;
 }
