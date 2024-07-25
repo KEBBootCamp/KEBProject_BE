@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>검수 상세보기</title>
+</head>
+<body>
+<h2>검수 상세보기</h2>
+<div>
+  <p>모델: <span th:text="${inspection.model}"></span></p>
+  <p>검수 장소: <span th:text="${inspection.place}"></span></p>
+  <p>검수 날짜: <span th:text="${inspection.inspectDate}"></span></p>
+
+  <input type="hidden" id="engineerId" th:value="${inspection.engineerId}"/>
+  <input type="hidden" id="matchingId" th:value="${inspection.matchingId}"/>
+</div>
+<button onclick="acceptInspection()">수락</button>
+<button onclick="rejectInspection()">거절</button>
+
+<script>
+    function handleResponse(response) {
+
+        if (response.status === 'accept') {
+            alert('수락했습니다.');
+            window.location.href = '/matching'
+        } else if (response.status === 'rejected') {
+            alert('거절했습니다.');
+            window.location.href = '/matching'
+        } else {
+            alert('실패했습니다.');
+        }
+    }
+
+    function sendRequest(url, method, data) {
+        fetch(url, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => handleResponse(data))
+            .catch(error => console.error('Error:', error));
+    }
+
+    function acceptInspection() {
+        sendRequest('/matching/request/accept/' + document.getElementById('matchingId').value, 'POST', { checked: true });
+    }
+
+    function rejectInspection() {
+        sendRequest('/matching/request/reject/' + document.getElementById('matchingId').value, 'POST', {});
+    }
+</script>
+
+</body>
+</html>
