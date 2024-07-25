@@ -17,6 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class InspectionController {
@@ -42,7 +43,7 @@ public class InspectionController {
 
     if (currentUser == null) {
       // 유저가 null일 경우에 대한 처리 (예: 로그인 페이지로 리다이렉트)
-      return "redirect:/login";
+      return "/login";
     }
 
     model.addAttribute("userId", currentUser.getUserId());
