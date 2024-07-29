@@ -86,9 +86,9 @@ public class InspectionService {
     inspectionRepository.save(inspection);
   }
 
-  // 고객에게 검수가 완료된 목록을 나오게 해주는 기능
+  // 고객에게 검수가 수락된 목록을 나오게 해주는 기능
   public List<Inspection> getEndInspection(String customerId) {
-    return inspectionRepository.findByCustomerIdAndComplete(customerId, true);
+    return inspectionRepository.findByCustomerIdAndChecked(customerId, true);
   }
 
   //리뷰 쓸지 안쓸지

@@ -182,19 +182,47 @@ public class InspectionController {
 
   }
 
-  //검수완료된 목록 고객이 확인
+  //진행중인 검수 목록 - 고객용
   @GetMapping("/matching/end")
   public String showEndRequested(Model model , HttpSession session) {
     User currentUser = (User) session.getAttribute("user");
 
     if (currentUser == null) {
-      return "redirect:/login";
+      return "/login";
     }
-
+  
     List<Inspection> endInspections = inspectionService.getEndInspection(currentUser.getUserId());
     model.addAttribute("inspections", endInspections);
 
     return "end_requested";
+  }
+
+
+//리뷰 작성하는지 안하는지
+  
+  @PostMapping("review/confirm/{matchingId}")
+  @ResponseBody
+  public Map<String, String> updateInspectionRate(@PathVariable int matchingId, @RequestBody Map<String, Boolean> request) {
+    Inspection inspection = inspectionService.getInspectionById(matchingId);
+    if (inspection != null) {
+      Boolean isRate = request.get("is_rate");
+      if (isRate != null) {
+        inspectionService.updateInspectionRate(matchingId, isRate);
+        return Map.of("status", "complete");
+      }
+    }
+    return Map.of("status", "failed");
+  }
+
+  @PostMapping("review/cancel/{matchingId}")
+  @ResponseBody
+  public Map<String, String> cancelReview(@PathVariable int matchingId) {
+    Inspection inspection = inspectionService.getInspectionById(matchingId);
+    if (inspection != null) {
+      inspectionService.updateInspectionRate(matchingId, false);
+      return Map.of("status", "accept", "message", "Review cancelled successfully");
+    }
+    return Map.of("status", "failed", "message", "Inspection not found");
   }
 
 

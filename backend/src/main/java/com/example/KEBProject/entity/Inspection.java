@@ -49,9 +49,10 @@ public class Inspection {
   @Column(name = "complete", nullable = false)
   private Boolean complete = false;
 
+  //isRate 널 여부 true 로 함으로써 리뷰 작성 부분에서 버튼 숨기기 용도
   @NonNull
-  @Column(name = "is_rate", nullable = false)
-  private Boolean isRate = false;
+  @Column(name = "is_rate", nullable = true)
+  private Boolean isRate;
 
   @ManyToOne
   @JoinColumn(name = "customer_id", referencedColumnName = "user_id", insertable = false, updatable = false)

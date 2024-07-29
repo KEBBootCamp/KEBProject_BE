@@ -19,6 +19,51 @@
           background-color: #f2f2f2;
       }
   </style>
+  <script>
+      function confirmReview(matchingId) {
+          const confirmMessage = "리뷰를 작성하시겠습니까?";
+          const userConfirmed = confirm(confirmMessage);
+
+          if (userConfirmed) {
+              // isRate를 true로 설정하고 리뷰 작성 페이지로 이동
+              fetch(`/review/confirm/${matchingId}`, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                      "is_rate": true
+                  })
+              })
+                  .then(response => response.json())
+                  .then(data => {
+                      if (data.status === "complete") {
+                          window.location.href = `/review/write/${matchingId}`;
+                      } else {
+                          alert("리뷰 작성을 위한 상태 업데이트에 실패했습니다.");
+                      }
+                  })
+                  .catch(error => console.error('Error:', error));
+          } else {
+              fetch(`/review/cancel/${matchingId}`, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              })
+                  .then(response => response.json())
+                  .then(data => {
+                      if (data.status === "accept") {
+                          alert("리뷰 작성 안함.");
+                          window.location.reload();
+                      } else {
+                          alert("실패했습니다.");
+                      }
+                  })
+                  .catch(error => console.error('Error:', error));
+          }
+      }
+  </script>
 </head>
 <body>
 <h1>검수 완료 리스트</h1>
@@ -40,7 +85,12 @@
     <td th:text="${inspection.place}">장소</td>
     <td th:text="${#dates.format(inspection.inspectDate, 'yyyy-MM-dd HH:mm:ss')}">검수 날짜</td>
     <td th:text="${inspection.complete ? '완료' : '미완료'}">검수 상태</td>
-
+    <td>
+      <button type="button" th:if="${inspection.complete && inspection.isRate == null}"
+              th:onclick="'confirmReview(' + ${inspection.matchingId} + ')'">
+        리뷰 작성
+      </button>
+    </td>
   </tr>
   </tbody>
 </table>

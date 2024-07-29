@@ -26,10 +26,10 @@ public class Review {
   @Column(name = "rating", nullable = false)
   private Rating rating;
 
-  @Column(name = "rating_good", length = 100)
+  @Column(name = "rating_good",nullable = true, length = 100)
   private String ratingGood;
 
-  @Column(name = "rating_bad", length = 100)
+  @Column(name = "rating_bad", nullable = true, length = 100)
   private String ratingBad;
 
   @NonNull

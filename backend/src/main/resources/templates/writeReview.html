@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Write Review</title>
+  <style>
+      .star-rating {
+          display: inline-block;
+          direction: rtl;
+          border: 0;
+      }
+      .star-rating legend {
+          text-align: right;
+      }
+      .star-rating input[type=radio] {
+          display: none;
+      }
+      .star-rating label {
+          font-size: 3em;
+          color: transparent;
+          text-shadow: 0 0 0 #f0f0f0;
+          cursor: pointer;
+      }
+      .star-rating label:hover {
+          text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+      }
+      .star-rating label:hover ~ label {
+          text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+      }
+      .star-rating input[type=radio]:checked ~ label {
+          text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+      }
+  </style>
+</head>
+<body>
+<h1>Write a Review</h1>
+<form th:action="@{/review/write/{matchingId}(matchingId=${matchingId})}" method="post">
+  <fieldset class="star-rating">
+    <span class="text-bold">별점을 선택해주세요</span>
+    <input type="radio" name="reviewStar" value="5" id="rate1" required><label for="rate1">★</label>
+    <input type="radio" name="reviewStar" value="4" id="rate2"><label for="rate2">★</label>
+    <input type="radio" name="reviewStar" value="3" id="rate3"><label for="rate3">★</label>
+    <input type="radio" name="reviewStar" value="2" id="rate4"><label for="rate4">★</label>
+    <input type="radio" name="reviewStar" value="1" id="rate5"><label for="rate5">★</label>
+  </fieldset>
+
+  <div>
+    <label for="ratingGood">좋은점:</label>
+    <input type="text" id="ratingGood" name="rating_good" required>
+    <br>
+    <label for="ratingBad">아쉬운점:</label>
+    <input type="text" id="ratingBad" name="rating_bad" required>
+    <br>
+    <input type="submit" value="Submit Review">
+  </div>
+</form>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var selectedRating = document.querySelector('input[name="reviewStar"]:checked');
+        if (!selectedRating) {
+            alert('별점을 선택해 주세요.');
+            return;
+        }
+
+        var formData = {
+            reviewStar: selectedRating.value,
+            rating_good: document.getElementById('ratingGood').value,
+            rating_bad: document.getElementById('ratingBad').value
+        };
+
+        var action = event.target.getAttribute('action');
+
+        fetch(action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => response.json())  // JSON 응답으로 변환
+            .then(data => {
+                if (data.status === "success") {
+                    window.location.href = '/matching/end';
+                } else {
+                    console.error('리뷰 제출 실패: ', data.message);
+                    alert('리뷰 제출 실패: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('오류 발생:', error);
+            });
+    });
+</script>
+</body>
+</html>
