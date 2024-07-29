@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Inspection Form</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h2>Inspection Form</h2>
+<form id="inspectionForm" action="/insepctionInfo" method="post">
+
+  <label for="customerId">고객명:</label>
+  <input type="text" id="customerId" name="customerId" th:value="${userId}" readonly><br><br>
+
+  <label for="model">검수 모델:</label>
+  <input type="text" id="model" name="model"><br><br>
+
+  <label for="place">검수 장소:</label>
+  <input type="text" id="place" name="place"><br><br>
+
+  <label for="inspectDateTime">검수 날짜 및 시간:</label>
+  <input type="datetime-local" id="inspectDateTime" name="inspectDateTime"><br><br>
+
+  <button type="submit">Submit</button>
+
+</form>
+</body>
+</html>
