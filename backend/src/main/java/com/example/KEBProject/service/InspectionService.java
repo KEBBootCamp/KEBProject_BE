@@ -16,12 +16,10 @@ public class InspectionService {
 
 
   private final InspectionRepository inspectionRepository;
-  private final UserRepository userRepository;
 
   @Autowired
   public InspectionService(InspectionRepository inspectionRepository, UserRepository userRepository) {
     this.inspectionRepository = inspectionRepository;
-    this.userRepository = userRepository;
   }
 
 
@@ -90,11 +88,11 @@ public class InspectionService {
   public List<Inspection> getEndInspection(String customerId) {
     return inspectionRepository.findByCustomerIdAndComplete(customerId, true);
   }
-
-  //리뷰 쓸지 안쓸지
-  public void updateInspectionRate(int matchingId, boolean isRate) {
-    Inspection inspection = getInspectionById(matchingId);
-    inspection.setIsRate(isRate);
-    inspectionRepository.save(inspection);
-  }
+//
+//  //리뷰 쓸지 안쓸지
+//  public void updateInspectionRate(int matchingId, boolean isRate) {
+//    Inspection inspection = getInspectionById(matchingId);
+//    inspection.setIsRate(isRate);
+//    inspectionRepository.save(inspection);
+//  }
 }

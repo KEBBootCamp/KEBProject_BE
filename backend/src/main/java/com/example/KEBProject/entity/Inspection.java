@@ -31,6 +31,10 @@ public class Inspection {
   private String engineerId;
 
   @NonNull
+  @Column(name = "brand", nullable = false, length = 20)
+  private String brand;
+
+  @NonNull
   @Column(name = "model", nullable = false, length = 20)
   private String model;
 
@@ -42,17 +46,15 @@ public class Inspection {
   @Column(name = "inspect_date", nullable = true)
   private Timestamp inspectDate;
 
+  //엔지니어의 검수 수락 여부
   @NonNull
   @Column(name = "checked", nullable = false)
   private Boolean checked = false;
 
+  //검수 완료 여부
   @NonNull
   @Column(name = "complete", nullable = false)
   private Boolean complete = false;
-
-  @NonNull
-  @Column(name = "is_rate", nullable = false)
-  private Boolean isRate = false;
 
   @ManyToOne
   @JoinColumn(name = "customer_id", referencedColumnName = "user_id", insertable = false, updatable = false)

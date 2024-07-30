@@ -95,7 +95,7 @@ public class InspectionController {
     Timestamp timestamp = Timestamp.valueOf(localDateTime);
     inspectionDTO.setInspectDate(timestamp);
     redirectAttributes.addFlashAttribute("inspectionDTO", inspectionDTO);
-    return "redirect:/expert/tests";
+    return "redirect:/expert/list";
   }
 
   // 엔지니어 검수 요청 상세보기

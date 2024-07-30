@@ -29,10 +29,6 @@ public class User {
     private String userName;
 
     @NonNull
-    @Column(name = "user_nickname", nullable = false, length = 20)
-    private String userNickname;
-
-    @NonNull
     @Column(name = "user_email", nullable = false, length = 20)
     private String userEmail;
 

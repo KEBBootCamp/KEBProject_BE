@@ -20,7 +20,6 @@
                 userId: $("#userId").val(),
                 userPwd: $("#userPwd").val(),
                 userName: $("#userName").val(),
-                userNickname: $("#userNickname").val(),
                 userEmail: $("#userEmail").val(),
                 userPhonenumber: $("#userPhonenumber").val(),
                 isExpert: isExpert
@@ -31,15 +30,13 @@
                     userId: $("#userId").val(),
                     userPwd: $("#userPwd").val(),
                     userName: $("#userName").val(),
-                    userNickname: $("#userNickname").val(),
                     userEmail: $("#userEmail").val(),
                     userPhonenumber: $("#userPhonenumber").val(),
                     isExpert: isExpert,
                     engineerCareer: $("#engineerCareer").val(),
                     engineerPicture: $("#engineerPicture").val(),
-                    engineerCertification: $("#engineerCertification").val(),
+                    engineerModel: $("#engineerModel").val(),
                     engineerProfile: $("#engineerProfile").val(),
-                    ratingAverage: parseFloat($("#ratingAverage").val())
                 };
 
                 $.ajax({
@@ -87,10 +84,6 @@
         <input type="text" id="userName" required />
     </div>
     <div>
-        <label for="userNickname">Nickname:</label>
-        <input type="text" id="userNickname" required />
-    </div>
-    <div>
         <label for="userEmail">Email:</label>
         <input type="email" id="userEmail" required />
     </div>
@@ -114,16 +107,12 @@
             <input type="text" id="engineerPicture" />
         </div>
         <div>
-            <label for="engineerCertification">Engineer Certification:</label>
-            <input type="text" id="engineerCertification" />
+            <label for="engineerModel">Engineer Certification:</label>
+            <input type="text" id="engineerModel" />
         </div>
         <div>
             <label for="engineerProfile">Engineer Profile:</label>
             <textarea id="engineerProfile"></textarea>
-        </div>
-        <div>
-            <label for="ratingAverage">Rating Average:</label>
-            <input type="number" step="0.1" id="ratingAverage" />
         </div>
     </div>
 

@@ -12,11 +12,12 @@ public class InspectionDTO {
   private Integer matchingId;
   private String customerId;
   private String engineerId;
+
+  private String brand;
   private String model;
+
   private String place;
   private Timestamp inspectDate;
   private Boolean checked;
   private Boolean complete;
-  private Boolean isRate;
-
 }
