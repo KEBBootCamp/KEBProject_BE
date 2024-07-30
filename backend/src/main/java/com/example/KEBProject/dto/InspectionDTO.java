@@ -18,4 +18,5 @@ public class InspectionDTO {
   private Boolean checked;
   private Boolean complete;
   private Boolean isRate;
+
 }

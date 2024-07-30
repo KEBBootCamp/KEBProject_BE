@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Inspection Details</title>
+    <script>
+        function sendPostRequest(userId) {
+            console.log("sendPostRequest called with userId:", userId);
+
+            var url = '/expert/expertDetails';
+
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = url;
+
+            var inputUserId = document.createElement('input');
+            inputUserId.type = 'hidden';
+            inputUserId.name = 'userId';
+            inputUserId.value = userId;
+            form.appendChild(inputUserId);
+
+            var inputCustomerId = document.createElement('input');
+            inputCustomerId.type = 'hidden';
+            inputCustomerId.name = 'customerId';
+            inputCustomerId.value = document.getElementById('customerId').innerText;
+            form.appendChild(inputCustomerId);
+
+            var inputModel = document.createElement('input');
+            inputModel.type = 'hidden';
+            inputModel.name = 'model';
+            inputModel.value = document.getElementById('model').innerText;
+            form.appendChild(inputModel);
+
+            var inputPlace = document.createElement('input');
+            inputPlace.type = 'hidden';
+            inputPlace.name = 'place';
+            inputPlace.value = document.getElementById('place').innerText;
+            form.appendChild(inputPlace);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+</head>
+<body>
+<h2>검수 정보</h2>
+<ul>
+    <li>Customer ID: <span id="customerId" th:text="${inspectionDTO.customerId}"></span></li>
+    <li>Model: <span id="model" th:text="${inspectionDTO.model}"></span></li>
+    <li>Place: <span id="place" th:text="${inspectionDTO.place}"></span></li>
+</ul>
+<br>
+<table>
+    <tr>
+        <th>Expert ID</th>
+        <th>Name</th>
+    </tr>
+    <tr th:each="expert : ${expertDto}">
+        <td>
+            <a href="#" onclick="sendPostRequest(this.getAttribute('data-user-id')); return false;"
+
+            </a>
+        </td>
+        <td th:text="${expert.userName}"></td>
+    </tr>
+</table>
+</body>
+</html>

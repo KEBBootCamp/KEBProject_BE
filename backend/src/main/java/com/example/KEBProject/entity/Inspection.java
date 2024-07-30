@@ -27,7 +27,7 @@ public class Inspection {
   private String customerId;
 
   @NonNull
-  @Column(name = "engineer_id", nullable = false, length = 20)
+  @Column(name = "engineer_id", nullable = true, length = 20)
   private String engineerId;
 
   @NonNull
@@ -38,7 +38,8 @@ public class Inspection {
   @Column(name = "place", nullable = false, length = 20)
   private String place;
 
-  @Column(name = "inspect_date")
+  //임시로 null 값 허용 -- 수정 예정
+  @Column(name = "inspect_date", nullable = true)
   private Timestamp inspectDate;
 
   @NonNull

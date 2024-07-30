@@ -34,7 +34,7 @@ public class ExpertListService {
                 .map(expert -> {
                     Optional<User> user = userRepository.findById(expert.getEngineerId());
                     return user.map(value -> new ExpertDTO(expert, value))
-                            .orElse(null); // or handle the case where user is not found
+                            .orElse(null);
                 })
                 .collect(Collectors.toList());
     }

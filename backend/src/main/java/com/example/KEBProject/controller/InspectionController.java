@@ -1,5 +1,6 @@
 package com.example.KEBProject.controller;
 
+import com.example.KEBProject.dto.InspectionDTO;
 import com.example.KEBProject.entity.Inspection;
 import com.example.KEBProject.entity.User;
 import com.example.KEBProject.service.ExpertService;
@@ -10,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,8 +41,6 @@ public class InspectionController {
   public String showInspectionForm(Model model, HttpSession session) {
     //세션에서 가져옴
     User currentUser = (User) session.getAttribute("user");
-    //기존 url 방식
-//    User currentUser = getCurrentUser(userId);
 
     if (currentUser == null) {
       // 유저가 null일 경우에 대한 처리 (예: 로그인 페이지로 리다이렉트)
@@ -69,25 +70,32 @@ public class InspectionController {
   }
 
   //TC -4 검수 조건 검색 전달
-  @PostMapping("/insepctionInfo")
+  @PostMapping("/inspectionInfo")
   public String submitInspectionForm(@RequestParam("customerId") String customerId,
                                      @RequestParam("model") String model,
                                      @RequestParam("place") String place,
                                      @RequestParam("inspectDateTime") String inspectDateTime,
-                                     Model inspectionModel) {
-    if (inspectDateTime == null || inspectDateTime.isEmpty()) {
-      return "expertNotFound"; // 검수 날짜가 입력되지 않았을 경우 처리
+                                     HttpSession session,
+                                     RedirectAttributes redirectAttributes) {
+    if (customerId == null || customerId.isEmpty() ||
+            model == null || model.isEmpty() ||
+            place == null || place.isEmpty() ||
+            inspectDateTime == null || inspectDateTime.isEmpty()) {
+      return "expertNotFound"; // 필수 매개변수가 없을 경우 처리
     }
 
-    LocalDate localDate = LocalDate.parse(inspectDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"));
-    Timestamp timestamp = Timestamp.valueOf(localDate.atStartOfDay());
 
-    inspectionModel.addAttribute("customerId", customerId);
-    inspectionModel.addAttribute("model", model);
-    inspectionModel.addAttribute("place", place);
-    inspectionModel.addAttribute("inspectDate", inspectDateTime);
+    User user = (User) session.getAttribute("user");
+    InspectionDTO inspectionDTO = new InspectionDTO();
+    inspectionDTO.setCustomerId(user.getUserId());
+    inspectionDTO.setModel(model);
+    inspectionDTO.setPlace(place);
 
-    return "show";
+    LocalDateTime localDateTime = LocalDateTime.parse(inspectDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"));
+    Timestamp timestamp = Timestamp.valueOf(localDateTime);
+    inspectionDTO.setInspectDate(timestamp);
+    redirectAttributes.addFlashAttribute("inspectionDTO", inspectionDTO);
+    return "redirect:/expert/tests";
   }
 
   // 엔지니어 검수 요청 상세보기
