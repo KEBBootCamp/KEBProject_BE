@@ -5,11 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f7ff8e-e30f-4969-b0f1-220444411687" name="Changes" comment="6-1, 7머지 후 커밋">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/showlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
@@ -17,41 +12,44 @@
       <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/KebProjectApplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/InspectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/InspectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/PageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/SearchlistController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/dto/ExpertDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/dto/UserDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/entity/Expert.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/dto/InspectionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/dto/InspectionDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/dto/RatingDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/dto/ReviewDTO.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/entity/Inspection.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/entity/Inspection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/entity/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/repository/ExpertListRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/repository/ExpertRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/ExpertListService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/ExpertService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/test/com/example/KEBProject/KebProjectApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/entity/Rating.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/entity/Review.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/repository/RatingRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/repository/ReviewRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/InspectionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/InspectionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/RatingService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/resources/main/templates/expertInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/templates/expertInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/templates/inspection_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/templates/inspection_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/templates/show.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/templates/expertList.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/templates/expertList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/templates/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/templates/join.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ExpertDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ExpertDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/InspectionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/InspectionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/RatingDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ReviewDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Expert.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Expert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Inspection.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Inspection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/ExpertListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/ExpertListService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/expertInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/expertInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/inspection_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/inspection_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/show.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Rating.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Review.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/repository/RatingRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/repository/ReviewRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/InspectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/InspectionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/RatingService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/ReviewService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/expertInfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/expertList.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/expertList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/join.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/showlist.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
