@@ -23,18 +23,18 @@ public class Expert {
     @Column(name = "engineer_career")
     private Integer engineerCareer;
 
+    //프로필 사진
     @Column(name = "engineer_picture", length = 80)
     private String engineerPicture;
 
-    @Column(name = "engineer_certification", length = 80)
-    private String engineerCertification;
+    @Column(name = "engineer_model", length = 80)
+    private String engineerModel;
 
+    //한줄 소개
     @Column(name = "engineer_profile", length = 200)
     private String engineerProfile;
 
-    @NonNull
-    @Column(name = "rating_average", nullable = false)
-    private Float ratingAverage;
+
 
     @OneToOne
     @MapsId

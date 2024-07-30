@@ -11,15 +11,14 @@ public class ExpertDTO {
     private String userId;
     private String userName;
     private String userPwd;
-    private String userNickname;
     private String userEmail;
     private String userPhonenumber;
     private Boolean isExpert;
+
     private Integer engineerCareer;
     private String engineerPicture;
-    private String engineerCertification;
+    private String engineerModel;
     private String engineerProfile;
-    private Float ratingAverage;
     private String engineerId;
 
     private ExpertDTO() {}
@@ -28,15 +27,15 @@ public class ExpertDTO {
         this.userId=userEntity.getUserId();
         this.userPwd=userEntity.getUserPwd();
         this.userName=userEntity.getUserName();
-        this.userNickname= userEntity.getUserNickname();
         this.userEmail=userEntity.getUserEmail();
         this.userPhonenumber=userEntity.getUserPhonenumber();
         this.isExpert=userEntity.getIsExpert();
 
+
         this.engineerCareer=expertEntity.getEngineerCareer();
         this.engineerPicture=expertEntity.getEngineerPicture();
-        this.engineerCertification=expertEntity.getEngineerCertification();
+        this.engineerPicture=expertEntity.getEngineerModel();
         this.engineerProfile=expertEntity.getEngineerProfile();
-        this.ratingAverage=expertEntity.getRatingAverage();
+
     }
 }
