@@ -1,52 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Expert Information</title>
+    <title>Title</title>
 </head>
 <body>
-<table>
-    <p>검수 정보</p>
-    <tr>
-        <th>User ID</th>
-        <td th:text="${inspectionDTO.userId}"></td>
-    </tr>
-    <tr>
-        <th>Expert ID</th>
-        <td th:text="${inspectionDTO.engineerId}"></td>
-    </tr>
-    <tr>
-        <th>Model</th>
-        <td th:text="${inspectionDTO.model}"></td></td>
-    </tr>
-    <tr>
-        <th>place</th>
-        <td th:text="${inspectionDTO.place}"></td>
-    </tr>
-</table>
-<table>
-    <p>전문가 세부정보</p>
-    <tr>
-        <th>User Phone</th>
-        <td th:text="${expertDTO.userPhonenumber}"></td>
-    </tr>
-    <tr>
-        <th>Engineer Career</th>
-        <td th:text="${expertDTO.engineerCareer}"></td>
-    </tr>
-    <tr>
-        <th>Engineer Picture</th>
-        <td th:text="${expertDTO.engineerPicture}"></td>
-    </tr>
-    <tr>
-        <th>Engineer Certification</th>
-        <td th:text="${expertDTO.engineerCertification}"></td>
-    </tr>
-    <tr>
-        <th>Engineer Profile</th>
-        <td th:text="${expertDTO.engineerProfile}"></td>
-    </tr>
-
-</table>
+<h2>Inspection Details</h2>
+<ul>
+    <li>Customer ID: <span th:text="${customerId}"></span></li>
+    <li>Expert Id: <span th:text="${expertId}"></span></li>
+    <li>model: <span th:text="${model}"></span></li>
+    <li>place: <span th:text="${place}"></span></li>
+</ul>
 </body>
 </html>
