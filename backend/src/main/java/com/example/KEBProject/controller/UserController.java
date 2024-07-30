@@ -28,7 +28,6 @@ public class UserController {
         user.setUserId(userDTO.getUserId());
         user.setUserPwd(userDTO.getUserPwd());
         user.setUserName(userDTO.getUserName());
-        user.setUserNickname(userDTO.getUserNickname());
         user.setUserEmail(userDTO.getUserEmail());
         user.setUserPhonenumber(userDTO.getUserPhonenumber());
         user.setIsExpert(false); // 일반 사용자로 설정
@@ -42,7 +41,6 @@ public class UserController {
         user.setUserId(expertDTO.getUserId());
         user.setUserPwd(expertDTO.getUserPwd());
         user.setUserName(expertDTO.getUserName());
-        user.setUserNickname(expertDTO.getUserNickname());
         user.setUserEmail(expertDTO.getUserEmail());
         user.setUserPhonenumber(expertDTO.getUserPhonenumber());
         user.setIsExpert(true); // 전문가 사용자로 설정
@@ -51,9 +49,8 @@ public class UserController {
         expert.setEngineerId(expertDTO.getUserId());
         expert.setEngineerCareer(expertDTO.getEngineerCareer());
         expert.setEngineerPicture(expertDTO.getEngineerPicture());
-        expert.setEngineerCertification(expertDTO.getEngineerCertification());
+        expert.setEngineerModel(expertDTO.getEngineerModel());
         expert.setEngineerProfile(expertDTO.getEngineerProfile());
-        expert.setRatingAverage(expertDTO.getRatingAverage());
         expert.setUser(user);
 
         user.setExpert(expert);

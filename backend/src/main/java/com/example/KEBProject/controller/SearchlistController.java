@@ -22,12 +22,14 @@ public class    SearchlistController {
 
     //TC-5 엔지니어 목록
     @GetMapping("/list")
-    public String expertList(Model model){
+    public String tests(@ModelAttribute("inspectionDTO")InspectionDTO inspectionDTO, Model model) {
+        model.addAttribute("inspectionDTO", inspectionDTO);
+
         List<ExpertDTO> expertDto = expertListService.showExpertsDto();
         model.addAttribute("expertDto", expertDto);
+
         return "expertList";
     }
-
 
     //TC-6 엔지니어 상세정보
     @PostMapping("/expertDetails")
@@ -43,42 +45,8 @@ public class    SearchlistController {
         inspectionmodel.addAttribute("model",model);
         inspectionmodel.addAttribute("place",place);
 
-
-//        try {
-//            ExpertDTO expertDto = expertListService.findByUserId(userId);
-//            if (expertDto == null) {
-//                return "expertNotFound";
-//            }
-//
-//            InspectionDTO inspectionDTO = new InspectionDTO();
-//            inspectionDTO.setEngineerId(userId);
-//            inspectionDTO.setCustomerId(customerId);
-//            inspectionDTO.setModel(model);
-//            inspectionDTO.setPlace(place);
-//
-//            //전문가 dto
-//            inspectionmodel.addAttribute("expertDto", expertDto);
-//            //검수 dto
-//            inspectionmodel.addAttribute("inspectionDTO", inspectionDTO);
-//
-//            return "expertInfo";
-//        } catch (Exception e) {
-//
-//            e.printStackTrace();
-//            return "errorPage";
-//        }
-        return "showInfo";
+        return "expertInfo";
     }
 
-
-    @GetMapping("/tests")
-    public String tests(@ModelAttribute("inspectionDTO")InspectionDTO inspectionDTO, Model model) {
-        model.addAttribute("inspectionDTO", inspectionDTO);
-
-        List<ExpertDTO> expertDto = expertListService.showExpertsDto();
-        model.addAttribute("expertDto", expertDto);
-
-        return "showlist";
-    }
 }
 

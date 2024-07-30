@@ -4,52 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32f7ff8e-e30f-4969-b0f1-220444411687" name="Changes" comment="6-1, 7머지 후 커밋">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/file-system.probe" afterDir="false" />
+    <list default="true" id="32f7ff8e-e30f-4969-b0f1-220444411687" name="Changes" comment="brand 칼럼 추가">
       <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/InspectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/InspectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/dto/InspectionDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/dto/InspectionDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/dto/RatingDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/dto/ReviewDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/entity/Inspection.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/entity/Inspection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/entity/Rating.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/entity/Review.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/repository/RatingRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/repository/ReviewRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/InspectionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/InspectionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/RatingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/templates/expertInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/templates/expertInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/templates/expertList.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/templates/expertList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/templates/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/templates/join.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ExpertDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ExpertDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/InspectionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/InspectionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/RatingDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ReviewDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Expert.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Expert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Inspection.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Inspection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Rating.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Review.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/repository/RatingRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/repository/ReviewRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/InspectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/InspectionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/RatingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/ReviewService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/expertInfo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/expertList.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/expertList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/join.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/showlist.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +140,47 @@
       <option name="project" value="LOCAL" />
       <updated>1721880064417</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="rating, review 엔티티 삭제">
+      <option name="closed" value="true" />
+      <created>1722321403195</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722321403195</updated>
+    </task>
+    <task id="LOCAL-00003" summary="brand 칼럼 추가">
+      <option name="closed" value="true" />
+      <created>1722321444012</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722321444012</updated>
+    </task>
+    <task id="LOCAL-00004" summary="전문가 상세정보 출력">
+      <option name="closed" value="true" />
+      <created>1722321483534</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722321483534</updated>
+    </task>
+    <task id="LOCAL-00005" summary="전문가 리스트 &amp; 검수 조건 출력">
+      <option name="closed" value="true" />
+      <created>1722321511263</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722321511263</updated>
+    </task>
+    <task id="LOCAL-00006" summary="brand 칼럼 추가">
+      <option name="closed" value="true" />
+      <created>1722321566170</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722321566170</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,8 +198,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge remote-tracking branch 'origin/TC-6-1_expertlist_expertInfo' into TC-6-1_expertlist_expertInfo" />
     <MESSAGE value="6-1, 7머지 후 커밋" />
-    <option name="LAST_COMMIT_MESSAGE" value="6-1, 7머지 후 커밋" />
+    <MESSAGE value="rating, review 엔티티 삭제" />
+    <MESSAGE value="전문가 상세정보 출력" />
+    <MESSAGE value="전문가 리스트 &amp; 검수 조건 출력" />
+    <MESSAGE value="전문가 리스" />
+    <MESSAGE value="brand 칼럼 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="brand 칼럼 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
