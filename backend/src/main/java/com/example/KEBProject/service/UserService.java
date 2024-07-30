@@ -31,4 +31,7 @@ public class UserService {
         return user.orElse(null);
     }
 
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
 }

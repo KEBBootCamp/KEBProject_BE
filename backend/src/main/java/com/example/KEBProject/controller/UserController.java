@@ -53,7 +53,7 @@ public class UserController {
         expert.setEngineerPicture(expertDTO.getEngineerPicture());
         expert.setEngineerCertification(expertDTO.getEngineerCertification());
         expert.setEngineerProfile(expertDTO.getEngineerProfile());
-        expert.setRatingAverage(expertDTO.getRatingAverage());
+//        expert.setRatingAverage(expertDTO.getRatingAverage());
         expert.setUser(user);
 
         user.setExpert(expert);

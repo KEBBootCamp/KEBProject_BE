@@ -19,7 +19,7 @@ public class ExpertDTO {
     private String engineerPicture;
     private String engineerCertification;
     private String engineerProfile;
-    private Float ratingAverage;
+//    private Float ratingAverage;
     private String engineerId;
 
     private ExpertDTO() {}
@@ -37,6 +37,6 @@ public class ExpertDTO {
         this.engineerPicture=expertEntity.getEngineerPicture();
         this.engineerCertification=expertEntity.getEngineerCertification();
         this.engineerProfile=expertEntity.getEngineerProfile();
-        this.ratingAverage=expertEntity.getRatingAverage();
+//        this.ratingAverage=expertEntity.getRatingAverage();
     }
 }

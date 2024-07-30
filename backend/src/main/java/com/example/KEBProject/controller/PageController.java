@@ -1,7 +1,10 @@
 package com.example.KEBProject.controller;
 
 
+import com.example.KEBProject.entity.Expert;
 import com.example.KEBProject.entity.User;
+import com.example.KEBProject.service.ExpertService;
+import com.example.KEBProject.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import jakarta.servlet.http.HttpSession;
@@ -13,6 +16,14 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/pages")
 public class PageController {
+
+    private final UserService userService;
+    private final ExpertService expertService;
+
+    public PageController(UserService userService, ExpertService expertService) {
+        this.userService = userService;
+        this.expertService = expertService;
+    }
 
     @GetMapping("/joinform")
     public String joinForm(Model model) {
@@ -27,13 +38,8 @@ public class PageController {
     }
 
     @GetMapping("/home")
-    public String homePage(HttpSession session, Model model) {
-        User user = (User) session.getAttribute("user");
-        if (user != null) {
-            model.addAttribute("user", user);
-        } else {
-            model.addAttribute("user", null);
-        }
-        return "home"; // home.html 템플릿을 반환
+    public String home(Model model) {
+        return "home";
     }
+
 }

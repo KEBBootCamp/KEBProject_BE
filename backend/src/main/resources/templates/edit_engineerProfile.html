@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>전문가 경력 수정 페이지</title>
+</head>
+<body>
+<h1>전문가 경력 수정</h1>
+
+<form th:action="@{/mypage/update}" th:object="${expert}" method="post">
+
+  <label for = "engineerCareer">경력 : </label>
+  <input type = "number" id = "engineerCareer" th:field="*{engineerCareer}"/>
+
+  <label for = "engineerProfile">한줄 소개 : </label>
+  <input type = "text" id = "engineerProfile" th:field="*{engineerProfile}"/>
+
+  <label for = "engineerPicture">사진 변경 : </label>
+  <input type = "text" id = "engineerPicture" th:field="*{engineerPicture}"/>
+
+  <button type="submit">Save Changes</button>
+</form>
+
+<a href="/mypage">돌아가기</a>
+</body>
+</html>
