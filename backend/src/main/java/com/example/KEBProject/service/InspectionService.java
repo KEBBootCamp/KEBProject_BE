@@ -67,11 +67,13 @@ public class InspectionService {
   }
 
   //검수 요청 거절
-  public void deleteInspectionChecked(int matchingId) {
+  public void rejectInspectionChecked(int matchingId) {
 
     Inspection inspection = getInspectionById(matchingId);
 
-    inspectionRepository.delete(inspection);
+    inspection.setChecked(false);
+
+    inspectionRepository.save(inspection);
   }
 
   //검수 완료 여부
@@ -84,9 +86,9 @@ public class InspectionService {
     inspectionRepository.save(inspection);
   }
 
-  // 고객에게 검수가 완료된 목록을 나오게 해주는 기능
+  // 고객에게 검수요청이 승인된 목록을 나오게 해주는 기능
   public List<Inspection> getEndInspection(String customerId) {
-    return inspectionRepository.findByCustomerIdAndComplete(customerId, true);
+    return inspectionRepository.findByCustomerIdAndChecked(customerId, true);
   }
 
 //

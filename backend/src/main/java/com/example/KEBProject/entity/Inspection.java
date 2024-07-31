@@ -47,9 +47,10 @@ public class Inspection {
   private Timestamp inspectDate;
 
   //엔지니어의 검수 수락 여부
+  //엔지니어가 수락 , 거절 둘다안하는 상태가 있을 수 있으므로 널을 허용했습니다
   @NonNull
-  @Column(name = "checked", nullable = false)
-  private Boolean checked = false;
+  @Column(name = "checked", nullable = true)
+  private Boolean checked ;
 
   //검수 완료 여부
   @NonNull

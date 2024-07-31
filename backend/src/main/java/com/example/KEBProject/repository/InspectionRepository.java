@@ -11,5 +11,5 @@ public interface InspectionRepository extends JpaRepository<Inspection, Integer>
 
   List<Inspection> findByCustomerId(String customerId);
 
-  List<Inspection> findByCustomerIdAndComplete(String customerId, boolean complete);
+  List<Inspection> findByCustomerIdAndChecked(String customerId, boolean checked);
 }

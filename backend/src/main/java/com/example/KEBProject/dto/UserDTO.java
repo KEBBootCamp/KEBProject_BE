@@ -9,7 +9,6 @@ public class UserDTO {
     private String userId;
     private String userPwd;
     private String userName;
-    private String userEmail;
     private String userPhonenumber;
     private Boolean isExpert;
 }

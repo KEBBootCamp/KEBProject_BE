@@ -28,7 +28,6 @@ public class UserController {
         user.setUserId(userDTO.getUserId());
         user.setUserPwd(userDTO.getUserPwd());
         user.setUserName(userDTO.getUserName());
-        user.setUserEmail(userDTO.getUserEmail());
         user.setUserPhonenumber(userDTO.getUserPhonenumber());
         user.setIsExpert(false); // 일반 사용자로 설정
         userService.createUser(user);
@@ -41,7 +40,6 @@ public class UserController {
         user.setUserId(expertDTO.getUserId());
         user.setUserPwd(expertDTO.getUserPwd());
         user.setUserName(expertDTO.getUserName());
-        user.setUserEmail(expertDTO.getUserEmail());
         user.setUserPhonenumber(expertDTO.getUserPhonenumber());
         user.setIsExpert(true); // 전문가 사용자로 설정
 

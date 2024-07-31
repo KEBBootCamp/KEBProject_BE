@@ -53,13 +53,14 @@ public class InspectionController {
     if (currentUser.getIsExpert()) {
       List<Inspection> inspections = inspectionService.getInspectionsForExpert(currentUser.getUserId());
 
-      //수락한 검수요청은 목록에서 사라지도록 설정
+      //검수 요청 응답한 것은 목록에서 사라지도록 설정
       List<Inspection> acceptInspections = inspections.stream()
-                  .filter(inspection -> !inspection.getChecked())
-                  .toList();
+          .filter(inspection -> inspection.getChecked() == null)
+          .toList();
       model.addAttribute("inspections", acceptInspections);
 
       return "engineer_requested";
+
     }
     //엔지니어 프로필 리스트
     else {
@@ -127,13 +128,13 @@ public class InspectionController {
 
   }
 
-  //엔지니어 검수 요청 거절시 DB 삭제
+  //엔지니어 검수 요청 거절시 리스트에 나오지 않게
   @PostMapping("/matching/request/reject/{matchingId}")
   @ResponseBody
   public Map<String, String> rejectInspection(@PathVariable int matchingId, @RequestBody Map<String,Boolean> request) {
     Inspection inspection = inspectionService.getInspectionById(matchingId);
     if (inspection != null){
-      inspectionService.deleteInspectionChecked(matchingId);
+      inspectionService.rejectInspectionChecked(matchingId);
       return Map.of("status","rejected");
     }
 
@@ -196,7 +197,7 @@ public class InspectionController {
     User currentUser = (User) session.getAttribute("user");
 
     if (currentUser == null) {
-      return "redirect:/login";
+      return "redirect:login";
     }
 
     List<Inspection> endInspections = inspectionService.getEndInspection(currentUser.getUserId());
@@ -204,6 +205,5 @@ public class InspectionController {
 
     return "end_requested";
   }
-
 
 }

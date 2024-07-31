@@ -11,7 +11,6 @@ public class ExpertDTO {
     private String userId;
     private String userName;
     private String userPwd;
-    private String userEmail;
     private String userPhonenumber;
     private Boolean isExpert;
 
@@ -27,7 +26,6 @@ public class ExpertDTO {
         this.userId=userEntity.getUserId();
         this.userPwd=userEntity.getUserPwd();
         this.userName=userEntity.getUserName();
-        this.userEmail=userEntity.getUserEmail();
         this.userPhonenumber=userEntity.getUserPhonenumber();
         this.isExpert=userEntity.getIsExpert();
 
