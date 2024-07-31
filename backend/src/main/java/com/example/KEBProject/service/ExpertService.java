@@ -30,4 +30,12 @@ public class ExpertService {
         Optional<Expert> expert = expertRepository.findById(engineerId);
         return expert.orElse(null);
     }
+
+    public Expert getExpertById(String engineerId) {
+        return findById(engineerId);
+    }
+
+    public Expert updateExpert(Expert expert) {
+        return expertRepository.save(expert);
+    }
 }

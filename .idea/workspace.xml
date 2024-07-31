@@ -4,8 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32f7ff8e-e30f-4969-b0f1-220444411687" name="Changes" comment="전문가 리스트 연결">
+    <list default="true" id="32f7ff8e-e30f-4969-b0f1-220444411687" name="Changes" comment="Inspection 테이블의 is_Rate값 null로 초기화해서 null일경우만 리뷰 작성 버튼 보이도록, is_Rate값 리뷰 작성시 true 아니면 false 로 변경 리뷰 작성, 별점 등록 review테이블에 저장까지">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/KEBProject.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/PageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/PageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/ExpertService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/service/ExpertService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/PageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ExpertDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ExpertDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Expert.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Expert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/ExpertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/ExpertService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +55,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
+        <option value="Class" />
         <option value="HTML File" />
       </list>
     </option>
@@ -39,39 +64,28 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="TC-7_engineerRequested" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;yonggi1234&quot;
+    &quot;assignee&quot;: &quot;SeoGyeongWon&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Mariojung123/KEBProject_BE.git&quot;,
-    &quot;accountId&quot;: &quot;d097704a-0c46-40d9-854d-5b7204e098a4&quot;
+    &quot;accountId&quot;: &quot;c9951c3d-0a7b-4eec-a232-4649b31b9472&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2jimHmQurFUj4u5G3IG12LTGtk6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -86,15 +100,14 @@
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.KebProjectApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;TC-6-1__expertlist__expertInfo&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.qodana&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -126,10 +139,8 @@
       <workItem from="1721878190428" duration="467000" />
       <workItem from="1721879339781" duration="766000" />
       <workItem from="1721880125738" duration="602000" />
-      <workItem from="1721954477311" duration="18209000" />
-      <workItem from="1722214124816" duration="19831000" />
-      <workItem from="1722299755653" duration="10964000" />
-      <workItem from="1722324403857" duration="200000" />
+      <workItem from="1722230540542" duration="9984000" />
+      <workItem from="1722303076235" duration="13986000" />
     </task>
     <task id="LOCAL-00001" summary="6-1, 7머지 후 커밋">
       <option name="closed" value="true" />
@@ -139,47 +150,7 @@
       <option name="project" value="LOCAL" />
       <updated>1721880064417</updated>
     </task>
-    <task id="LOCAL-00002" summary="rating, review 엔티티 삭제">
-      <option name="closed" value="true" />
-      <created>1722321403195</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1722321403195</updated>
-    </task>
-    <task id="LOCAL-00003" summary="brand 칼럼 추가">
-      <option name="closed" value="true" />
-      <created>1722321444012</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1722321444012</updated>
-    </task>
-    <task id="LOCAL-00004" summary="전문가 상세정보 출력">
-      <option name="closed" value="true" />
-      <created>1722321483534</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1722321483534</updated>
-    </task>
-    <task id="LOCAL-00005" summary="전문가 리스트 &amp; 검수 조건 출력">
-      <option name="closed" value="true" />
-      <created>1722321511263</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1722321511263</updated>
-    </task>
-    <task id="LOCAL-00006" summary="brand 칼럼 추가">
-      <option name="closed" value="true" />
-      <created>1722321566170</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1722321566170</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,42 +168,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge remote-tracking branch 'origin/TC-6-1_expertlist_expertInfo' into TC-6-1_expertlist_expertInfo" />
     <MESSAGE value="6-1, 7머지 후 커밋" />
-    <MESSAGE value="rating, review 엔티티 삭제" />
-    <MESSAGE value="전문가 상세정보 출력" />
-    <MESSAGE value="전문가 리스트 &amp; 검수 조건 출력" />
-    <MESSAGE value="전문가 리스" />
-    <MESSAGE value="brand 칼럼 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="brand 칼럼 추가" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java</url>
-          <line>132</line>
-          <properties class="com.example.KEBProject.controller.InspectionController" method="rejectInspection">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <option name="LAST_COMMIT_MESSAGE" value="6-1, 7머지 후 커밋" />
   </component>
 </project>

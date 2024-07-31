@@ -31,7 +31,6 @@ public class ExpertDTO {
         this.userPhonenumber=userEntity.getUserPhonenumber();
         this.isExpert=userEntity.getIsExpert();
 
-
         this.engineerCareer=expertEntity.getEngineerCareer();
         this.engineerPicture=expertEntity.getEngineerPicture();
         this.engineerPicture=expertEntity.getEngineerModel();
