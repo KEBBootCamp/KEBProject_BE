@@ -21,7 +21,7 @@
   </style>
 </head>
 <body>
-<h1>검수 완료 리스트</h1>
+<h1>검수 신청 리스트</h1>
 <table>
   <thead>
   <tr>
@@ -29,8 +29,8 @@
     <th>모델</th>
     <th>장소</th>
     <th>검수 날짜</th>
+    <th>검수 수락 여부</th>
     <th>검수 상태</th>
-    <th>리뷰 작성</th>
   </tr>
   </thead>
   <tbody>
@@ -39,6 +39,7 @@
     <td th:text="${inspection.model}">모델</td>
     <td th:text="${inspection.place}">장소</td>
     <td th:text="${#dates.format(inspection.inspectDate, 'yyyy-MM-dd HH:mm:ss')}">검수 날짜</td>
+    <td th:text="${inspection.checked == null ? '' : (inspection.checked ? '승인' : '거절')}">요청 승인</td>
     <td th:text="${inspection.complete ? '완료' : '미완료'}">검수 상태</td>
 
   </tr>

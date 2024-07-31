@@ -155,7 +155,7 @@ public class InspectionController {
 
     //수락한 검수요청만 리스트에 나오게하는 부분
     List<Inspection> acceptInspections = inspections.stream()
-            .filter(inspection -> inspection.getChecked())
+            .filter(inspection -> Boolean.TRUE.equals(inspection.getChecked()))
                 .toList();
     model.addAttribute("inspections", acceptInspections);
     return "accept_requested";

@@ -88,7 +88,7 @@ public class InspectionService {
 
   // 고객에게 검수요청이 승인된 목록을 나오게 해주는 기능
   public List<Inspection> getEndInspection(String customerId) {
-    return inspectionRepository.findByCustomerIdAndChecked(customerId, true);
+    return inspectionRepository.findByCustomerId(customerId);
   }
 
 //
