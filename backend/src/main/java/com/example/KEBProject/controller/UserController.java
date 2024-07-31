@@ -49,7 +49,7 @@ public class UserController {
         expert.setEngineerId(expertDTO.getUserId());
         expert.setEngineerCareer(expertDTO.getEngineerCareer());
         expert.setEngineerPicture(expertDTO.getEngineerPicture());
-        expert.setEngineerModel(expertDTO.getEngineerModel());
+        expert.setEngineerBrand(expertDTO.getEngineerBrand());
         expert.setEngineerProfile(expertDTO.getEngineerProfile());
         expert.setUser(user);
 

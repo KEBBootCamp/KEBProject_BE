@@ -5,12 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Inspection Details</h2>
-<ul>
-    <li>Customer ID: <span th:text="${customerId}"></span></li>
-    <li>Expert Id: <span th:text="${expertId}"></span></li>
-    <li>model: <span th:text="${model}"></span></li>
-    <li>place: <span th:text="${place}"></span></li>
-</ul>
+<table>
+    <tr>
+        customerId: <td th:text="${customerId}"></td>
+        expertId: <td th:text="${expertId}"></td>
+        model: <td th:text="${model}"></td>
+        place: <td th:text="${place}"></td>
+    </tr>
+</table>
 </body>
 </html>
