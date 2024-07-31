@@ -20,6 +20,7 @@ public class Expert {
     @Column(name = "engineer_id", nullable = false, length = 20)
     private String engineerId;
 
+    //엔지니어 경력
     @Column(name = "engineer_career")
     private Integer engineerCareer;
 
@@ -27,8 +28,9 @@ public class Expert {
     @Column(name = "engineer_picture", length = 80)
     private String engineerPicture;
 
-    @Column(name = "engineer_model", length = 80)
-    private String engineerModel;
+    //엔지니어 주력 제조사
+    @Column(name = "engineer_brand", length = 80)
+    private String engineerBrand;
 
     //한줄 소개
     @Column(name = "engineer_profile", length = 200)

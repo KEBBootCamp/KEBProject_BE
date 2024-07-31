@@ -35,6 +35,7 @@ public class ExpertService {
         return findById(engineerId);
     }
 
+    //마이페이지 에서 전문가 정보 수정 및 업데이트 부분기능
     public Expert updateExpert(Expert expert) {
         return expertRepository.save(expert);
     }
