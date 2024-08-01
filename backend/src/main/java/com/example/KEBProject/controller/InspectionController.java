@@ -14,13 +14,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class InspectionController {
@@ -73,6 +72,7 @@ public class InspectionController {
   //TC -4 검수 조건 검색 전달
   @PostMapping("/inspectionInfo")
   public String submitInspectionForm(@RequestParam("customerId") String customerId,
+                                     @RequestParam("brand") String brand,
                                      @RequestParam("model") String model,
                                      @RequestParam("place") String place,
                                      @RequestParam("inspectDateTime") String inspectDateTime,
@@ -80,8 +80,10 @@ public class InspectionController {
                                      RedirectAttributes redirectAttributes) {
     if (customerId == null || customerId.isEmpty() ||
             model == null || model.isEmpty() ||
-            place == null || place.isEmpty() ||
-            inspectDateTime == null || inspectDateTime.isEmpty()) {
+            brand == null || brand.isEmpty() ||
+            place == null || place.isEmpty())
+//            || inspectDateTime == null || inspectDateTime.isEmpty())
+    {
       return "expertNotFound"; // 필수 매개변수가 없을 경우 처리
     }
 
@@ -90,11 +92,15 @@ public class InspectionController {
     InspectionDTO inspectionDTO = new InspectionDTO();
     inspectionDTO.setCustomerId(user.getUserId());
     inspectionDTO.setModel(model);
+    inspectionDTO.setBrand(brand);
     inspectionDTO.setPlace(place);
 
-    LocalDateTime localDateTime = LocalDateTime.parse(inspectDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"));
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+    LocalDateTime localDateTime = LocalDateTime.parse(inspectDateTime, formatter);
+
     Timestamp timestamp = Timestamp.valueOf(localDateTime);
     inspectionDTO.setInspectDate(timestamp);
+
     redirectAttributes.addFlashAttribute("inspectionDTO", inspectionDTO);
     return "redirect:/expert/list";
   }
