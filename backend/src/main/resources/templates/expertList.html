@@ -31,11 +31,23 @@
             inputModel.value = document.getElementById('model').innerText;
             form.appendChild(inputModel);
 
+            var inputBrand = document.createElement('input');
+            inputBrand.type = 'hidden';
+            inputBrand.name = 'brand';
+            inputBrand.value = document.getElementById('brand').innerText;
+            form.appendChild(inputBrand);
+
             var inputPlace = document.createElement('input');
             inputPlace.type = 'hidden';
             inputPlace.name = 'place';
             inputPlace.value = document.getElementById('place').innerText;
             form.appendChild(inputPlace);
+
+            var inputDate = document.createElement('input');
+            inputDate.type = 'hidden';
+            inputDate.name = 'inspectDateTime';
+            inputDate.value = document.getElementById('date').innerText;
+            form.appendChild(inputDate);
 
             document.body.appendChild(form);
             form.submit();
@@ -47,7 +59,9 @@
 <ul>
     <li>Customer ID: <span id="customerId" th:text="${inspectionDTO.customerId}"></span></li>
     <li>Model: <span id="model" th:text="${inspectionDTO.model}"></span></li>
+    <li>Brand: <span id="brand" th:text="${inspectionDTO.brand}"></span></li>
     <li>Place: <span id="place" th:text="${inspectionDTO.place}"></span></li>
+    <li>Date: <span id="date" th:text="${inspectionDTO.inspectDate}"></span></li>
 </ul>
 <br>
 <table>
@@ -60,7 +74,6 @@
             <a href="#" onclick="sendPostRequest(this.getAttribute('data-user-id')); return false;" th:attr="data-user-id=${expert.userId}">
                 <span th:text="${expert.userId}"></span>
             </a>
-
         </td>
         <td th:text="${expert.userName}"></td>
     </tr>
