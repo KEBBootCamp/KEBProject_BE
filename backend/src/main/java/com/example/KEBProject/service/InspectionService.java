@@ -1,5 +1,6 @@
 package com.example.KEBProject.service;
 
+import com.example.KEBProject.entity.User;
 import com.example.KEBProject.repository.InspectionRepository;
 import com.example.KEBProject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,10 @@ public class InspectionService {
   @Autowired
   public InspectionService(InspectionRepository inspectionRepository, UserRepository userRepository) {
     this.inspectionRepository = inspectionRepository;
+  }
+
+  public Inspection createInspection(Inspection inspection) {
+    return inspectionRepository.save(inspection);
   }
 
 
