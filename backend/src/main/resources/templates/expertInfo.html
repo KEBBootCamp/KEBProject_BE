@@ -2,16 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Inspection Form</title>
 </head>
 <body>
-<table>
-    <tr>
-        customerId: <td th:text="${customerId}"></td>
-        expertId: <td th:text="${expertId}"></td>
-        model: <td th:text="${model}"></td>
-        place: <td th:text="${place}"></td>
-    </tr>
-</table>
+<form action="/expert/createInspection" method="post">
+    <input type="hidden" name="userId" th:value="${expertId}" />
+
+    <table>
+        <tr>
+            <td>Customer ID:</td>
+            <td>
+                <span th:text="${customerId}"></span>
+                <input type="hidden" name="customerId" th:value="${customerId}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Expert ID:</td>
+            <td>
+                <span th:text="${expertId}"></span>
+                <input type="hidden" name="expertId" th:value="${expertId}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Brand:</td>
+            <td>
+                <span th:text="${brand}"></span>
+                <input type="hidden" name="brand" th:value="${brand}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Model:</td>
+            <td>
+                <span th:text="${model}"></span>
+                <input type="hidden" name="model" th:value="${model}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Place:</td>
+            <td>
+                <span th:text="${place}"></span>
+                <input type="hidden" name="place" th:value="${place}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Date:</td>
+            <td>
+                <span th:text="${inspectDateTime}"></span>
+                <input type="hidden" name="inspectDateTime" th:value="${inspectDateTime}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
