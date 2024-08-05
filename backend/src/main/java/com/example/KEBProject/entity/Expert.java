@@ -24,10 +24,6 @@ public class Expert {
     @Column(name = "engineer_career")
     private Integer engineerCareer;
 
-    //프로필 사진
-    @Column(name = "engineer_picture", length = 80)
-    private String engineerPicture;
-
     //엔지니어 주력 제조사
     @Column(name = "engineer_brand", length = 80)
     private String engineerBrand;

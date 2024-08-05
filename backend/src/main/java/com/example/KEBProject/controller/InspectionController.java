@@ -66,41 +66,7 @@ public class InspectionController {
 //    }
 //  }
 
-  //TC -4 검수 조건 검색 전달
-  @PostMapping("/inspectionInfo")
-  public String submitInspectionForm(@RequestParam("customerId") String customerId,
-                                     @RequestParam("brand") String brand,
-                                     @RequestParam("model") String model,
-                                     @RequestParam("place") String place,
-                                     @RequestParam("inspectDateTime") String inspectDateTime,
-                                     HttpSession session,
-                                     RedirectAttributes redirectAttributes) {
-    if (customerId == null || customerId.isEmpty() ||
-            model == null || model.isEmpty() ||
-            brand == null || brand.isEmpty() ||
-            place == null || place.isEmpty())
-//            || inspectDateTime == null || inspectDateTime.isEmpty())
-    {
-      return "expertNotFound"; // 필수 매개변수가 없을 경우 처리
-    }
-
-
-    User user = (User) session.getAttribute("user");
-    InspectionDTO inspectionDTO = new InspectionDTO();
-    inspectionDTO.setCustomerId(user.getUserId());
-    inspectionDTO.setModel(model);
-    inspectionDTO.setBrand(brand);
-    inspectionDTO.setPlace(place);
-
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-    LocalDateTime localDateTime = LocalDateTime.parse(inspectDateTime, formatter);
-
-    Timestamp timestamp = Timestamp.valueOf(localDateTime);
-    inspectionDTO.setInspectDate(timestamp);
-
-    redirectAttributes.addFlashAttribute("inspectionDTO", inspectionDTO);
-    return "redirect:/expert/list";
-  }
+  
   // 엔지니어 검수 요청 상세보기
   @GetMapping("/inspection_detail/{matchingId}")
   public String requestInspection(@PathVariable int matchingId, Model model) {
