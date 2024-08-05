@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home Page</title>
+    <title>마이페이지</title>
+    <style>
+        .inspection-details {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome to the Home Page</h1>
+<h1>마이페이지</h1>
 <div th:if="${user != null}">
     <p>User ID: <span th:text="${user.userId}"></span></p>
     <p>User Name: <span th:text="${user.userName}"></span></p>
     <p>Is Expert: <span th:text="${user.isExpert}"></span></p>
 
-    <div th:if="${user.isExpert}">
+    <button onclick="logout()">Logout</button>
+    <br>
+    <hr>
+
+    <div th:if = "${user.isExpert == false}">
+        <h1>나의 신청 내역</h1>
+        <!-- 유저 아이디로 자신이 신청한것을 가져와야 합니다 -->
+        <div th:each="inspection:   ${inspections}" class ="inspection-details">
+        <P>차종: <span th:text="${inspection.brand}"></span>&nbsp;<span th:text="${inspection.model}"></span></P>
+        <p>검수 장소: <span th:text="${inspection.place}"></span></p>
+            <p>검수 일정: <span th:text="${#dates.format(inspection.inspectDate, 'yyyy-MM-dd')}"></span></p>
+        </div>
+    </div>
+
+    <!-- 전문가 부분-->
+    <div th:if="${user.isExpert == true}">
         <h2>Expert Details</h2>
         <p>Picture: <img th:src="@{${expert.engineerPicture}}"alt="Expert Picture"/></p>
         <p>Career: <span th:text="${expert.engineerCareer}"></span> years</p>
         <p>주력 모델: <span th:text="${expert.engineerBrand}"></span></p>
         <p>Profile: <span th:text="${expert.engineerProfile}"></span></p>
+
+        <br>
+        <hr>
+
+        <span><a href = "/matching">나의 매칭 내역</a></span>
+
+        <br>
+        <hr>
+
+
+        <a href="/mypage/edit">내 정보 수정</a>
 
     </div>
 </div>
