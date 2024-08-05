@@ -6,26 +6,50 @@
 </head>
 <body>
 <h2>검수 상세보기</h2>
-<div>
-  <p>모델: <span th:text="${inspection.model}"></span></p>
-  <p>검수 장소: <span th:text="${inspection.place}"></span></p>
-  <p>검수 날짜: <span th:text="${inspection.inspectDate}"></span></p>
+
+<div th:each="inspection : ${inspections}">
 
   <input type="hidden" id="engineerId" th:value="${inspection.engineerId}"/>
   <input type="hidden" id="matchingId" th:value="${inspection.matchingId}"/>
+
+  <div th:if="${inspection.checked} == null">
+    <p>모델: <span th:text="${inspection.model}"></span></p>
+    <p>검수 장소: <span th:text="${inspection.place}"></span></p>
+    <p>검수 날짜: <span th:text="${inspection.inspectDate}"></span></p>
+
+    <button id="acceptBtn" th:onclick="'acceptInspection(' + ${inspection.matchingId} + ')'">수락</button>
+    <button id="rejectBtn" th:onclick="'rejectInspection(' + ${inspection.matchingId} + ')'">거절</button>
+  </div>
+
+  <div th:if="${inspection.checked} == true and ${inspection.complete} != true">
+    <p>모델: <span th:text="${inspection.model}"></span></p>
+    <p>검수 장소: <span th:text="${inspection.place}"></span></p>
+    <p>검수 날짜: <span th:text="${inspection.inspectDate}"></span></p>
+
+    <button id="completeBtn" th:onclick="'completeInspection(' + ${inspection.matchingId} + ')'">검수 완료</button>
+  </div>
+
+  <div th:if="${inspection.complete} == true">
+    <p>모델: <span th:text="${inspection.model}"></span></p>
+    <p>검수 장소: <span th:text="${inspection.place}"></span></p>
+    <p>검수 날짜: <span th:text="${inspection.inspectDate}"></span></p>
+
+    <p>검수 완료</p>
+  </div>
+
 </div>
-<button onclick="acceptInspection()">수락</button>
-<button onclick="rejectInspection()">거절</button>
 
 <script>
     function handleResponse(response) {
-
         if (response.status === 'accept') {
             alert('수락했습니다.');
-            window.location.href = '/matching'
+            location.reload();
         } else if (response.status === 'rejected') {
             alert('거절했습니다.');
-            window.location.href = '/matching'
+            location.reload();
+        } else if (response.status === 'complete') {
+            alert('검수가 완료되었습니다.');
+            location.reload();
         } else {
             alert('실패했습니다.');
         }
@@ -44,12 +68,16 @@
             .catch(error => console.error('Error:', error));
     }
 
-    function acceptInspection() {
-        sendRequest('/matching/request/accept/' + document.getElementById('matchingId').value, 'POST', { checked: true });
+    function acceptInspection(matchingId) {
+        sendRequest('/matching/request/accept/' + matchingId, 'POST', { checked: true });
     }
 
-    function rejectInspection() {
-        sendRequest('/matching/request/reject/' + document.getElementById('matchingId').value, 'POST', {});
+    function rejectInspection(matchingId) {
+        sendRequest('/matching/request/reject/' + matchingId, 'POST', {checked: false});
+    }
+
+    function completeInspection(matchingId) {
+        sendRequest('/matching/request/complete/' + matchingId, 'POST', { complete: true });
     }
 </script>
 
