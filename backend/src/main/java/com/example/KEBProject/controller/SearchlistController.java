@@ -37,7 +37,7 @@ public class    SearchlistController {
         Map<String, Object> response = new HashMap<>();
         response.put("inspectionDTO", inspectionDTO);
 
-        List<ExpertDTO> expertDto = expertListService.showExpertsDto();
+        List<ExpertDTO> expertDto = expertListService.showExpertsDto(inspectionDTO.getBrand());
         response.put("expertDto", expertDto);
 
         return ResponseEntity.ok(response);
