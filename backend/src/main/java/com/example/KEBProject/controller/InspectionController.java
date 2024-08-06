@@ -46,28 +46,39 @@ public class InspectionController {
 
     List<Map<String, Object>> inspectionsResponse = new ArrayList<>();
     for (Inspection inspection : inspections) {
-      if (inspection.getChecked() == null || inspection.getChecked()) {
-        Map<String, Object> inspectionData = new HashMap<>();
+      Map<String, Object> inspectionData = new HashMap<>();
+      if (inspection.getChecked() == null) {
+        inspectionData.put("checked", inspection.getChecked());
         inspectionData.put("matchingId", inspection.getMatchingId());
         inspectionData.put("brand", inspection.getBrand());
         inspectionData.put("model", inspection.getModel());
         inspectionData.put("place", inspection.getPlace());
         inspectionData.put("inspectDate", inspection.getInspectDate());
-        inspectionData.put("checked", inspection.getChecked());
+      } else if (inspection.getChecked() == true) {
         inspectionData.put("complete", inspection.getComplete());
-
-        inspectionsResponse.add(inspectionData);
+        inspectionData.put("matchingId", inspection.getMatchingId());
+        inspectionData.put("brand", inspection.getBrand());
+        inspectionData.put("model", inspection.getModel());
+        inspectionData.put("place", inspection.getPlace());
+        inspectionData.put("inspectDate", inspection.getInspectDate());
       }
+      else if(inspection.getChecked() == false) continue;
+      inspectionsResponse.add(inspectionData);
     }
 
     response.put("inspections", inspectionsResponse);
     return ResponseEntity.ok(response);
   }
 
+
+  // /accept URL 매핑시
   @PostMapping("/accept/{matchingId}")
   public ResponseEntity<Map<String, String>> checkInspection(@PathVariable int matchingId) {
     Inspection inspection = inspectionService.getInspectionById(matchingId);
     if (inspection != null) {
+      if(inspection.getChecked()!=null) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("status", "error"));
+      }
       inspectionService.updateInspectionChecked(matchingId, true);
       return ResponseEntity.ok(Map.of("status", "accept"));
     }
@@ -78,6 +89,9 @@ public class InspectionController {
   public ResponseEntity<Map<String, String>> rejectInspection(@PathVariable int matchingId) {
     Inspection inspection = inspectionService.getInspectionById(matchingId);
     if (inspection != null) {
+      if(inspection.getChecked()!=null) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("status", "error"));
+      }
       inspectionService.updateInspectionChecked(matchingId, false);
       return ResponseEntity.ok(Map.of("status", "rejected"));
     }
@@ -88,6 +102,9 @@ public class InspectionController {
   public ResponseEntity<Map<String, String>> completeInspection(@PathVariable int matchingId) {
     Inspection inspection = inspectionService.getInspectionById(matchingId);
     if (inspection != null) {
+      if(inspection.getChecked() != true || inspection.getComplete() != false) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("status", "error"));
+      }
       inspectionService.updateInspectionComplete(matchingId, true);
       return ResponseEntity.ok(Map.of("status", "complete"));
     }
