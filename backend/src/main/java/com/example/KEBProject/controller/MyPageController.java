@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,7 +42,34 @@ public class MyPageController {
 
       // 고객이 신청한 검수 내역
       List<Inspection> customerInspection = inspectionService.getInspectionsForCustomer(user.getUserId());
-      response.put("inspections", customerInspection);
+
+      List<Map<String, Object>> inspectionsResponse = new ArrayList<>();
+      for (Inspection inspection : customerInspection) {
+        Map<String, Object> inspectionData = new HashMap<>();
+        inspectionData.put("matchingId", inspection.getMatchingId());
+        inspectionData.put("brand", inspection.getBrand());
+        inspectionData.put("model", inspection.getModel());
+        inspectionData.put("place", inspection.getPlace());
+        inspectionData.put("inspectDate", inspection.getInspectDate());
+        inspectionData.put("checked", inspection.getChecked());
+        inspectionData.put("complete", inspection.getComplete());
+
+        User engineer = inspection.getEngineer().getUser();
+
+        if (engineer != null) {
+          Map<String, Object> engineerData = new HashMap<>();
+          engineerData.put("userId", engineer.getUserId());
+          engineerData.put("userName", engineer.getUserName());
+          engineerData.put("userPhonenumber", engineer.getUserPhonenumber());
+          inspectionData.put("expert", engineerData);
+        } else {
+          inspectionData.put("expert", null);
+        }
+
+        inspectionsResponse.add(inspectionData);
+      }
+
+      response.put("inspections", inspectionsResponse);
     } else {
       response.put("user", null);
     }
@@ -54,10 +81,10 @@ public class MyPageController {
   public ResponseEntity<Map<String, Object>> engineerMypage(HttpSession session) {
     Map<String, Object> response = new HashMap<>();
     User user = (User) session.getAttribute("user");
+
     if (user != null && user.getIsExpert()) {
       response.put("user", user);
     }
-
     return ResponseEntity.ok(response);
   }
 
@@ -67,6 +94,7 @@ public class MyPageController {
   public ResponseEntity<Map<String, Object>> editProfile(HttpSession session) {
     Map<String, Object> response = new HashMap<>();
     User user = (User) session.getAttribute("user");
+
     if (user != null && user.getIsExpert()) {
       Expert expert = expertService.getExpertById(user.getUserId());
       response.put("expert", expert);
@@ -91,7 +119,6 @@ public class MyPageController {
 
       Expert expert = expertService.getExpertById(currentUser.getUserId());
 
-      // 여기서 Expert 객체를 설정합니다.
       expert.setEngineerCareer(engineerCareer);
       expert.setEngineerBrand(engineerBrand);
       expert.setEngineerProfile(engineerProfile);

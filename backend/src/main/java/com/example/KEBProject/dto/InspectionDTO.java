@@ -20,4 +20,6 @@ public class InspectionDTO {
   private Timestamp inspectDate;
   private Boolean checked;
   private Boolean complete;
+
+
 }
