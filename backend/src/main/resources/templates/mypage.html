@@ -34,7 +34,6 @@
     <!-- 전문가 부분-->
     <div th:if="${user.isExpert == true}">
         <h2>Expert Details</h2>
-        <p>Picture: <img th:src="@{${expert.engineerPicture}}"alt="Expert Picture"/></p>
         <p>Career: <span th:text="${expert.engineerCareer}"></span> years</p>
         <p>주력 모델: <span th:text="${expert.engineerBrand}"></span></p>
         <p>Profile: <span th:text="${expert.engineerProfile}"></span></p>
