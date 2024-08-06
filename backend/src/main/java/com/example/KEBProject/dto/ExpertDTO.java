@@ -15,7 +15,6 @@ public class ExpertDTO {
     private Boolean isExpert;
 
     private Integer engineerCareer;
-    private String engineerPicture;
     private String engineerBrand;
     private String engineerProfile;
     private String engineerId;
@@ -30,8 +29,7 @@ public class ExpertDTO {
         this.isExpert=userEntity.getIsExpert();
 
         this.engineerCareer=expertEntity.getEngineerCareer();
-        this.engineerPicture=expertEntity.getEngineerPicture();
-        this.engineerPicture=expertEntity.getEngineerBrand();
+        this.engineerBrand=expertEntity.getEngineerBrand();
         this.engineerProfile=expertEntity.getEngineerProfile();
 
     }

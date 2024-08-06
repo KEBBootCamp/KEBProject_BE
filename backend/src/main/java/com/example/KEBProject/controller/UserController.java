@@ -46,7 +46,6 @@ public class UserController {
         Expert expert = new Expert();
         expert.setEngineerId(expertDTO.getUserId());
         expert.setEngineerCareer(expertDTO.getEngineerCareer());
-        expert.setEngineerPicture(expertDTO.getEngineerPicture());
         expert.setEngineerBrand(expertDTO.getEngineerBrand());
         expert.setEngineerProfile(expertDTO.getEngineerProfile());
         expert.setUser(user);
