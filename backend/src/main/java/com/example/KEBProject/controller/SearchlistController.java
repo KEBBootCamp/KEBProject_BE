@@ -4,24 +4,30 @@ package com.example.KEBProject.controller;
 
 import com.example.KEBProject.dto.ExpertDTO;
 import com.example.KEBProject.dto.InspectionDTO;
+import com.example.KEBProject.entity.Expert;
 import com.example.KEBProject.entity.Inspection;
 import com.example.KEBProject.entity.User;
+import com.example.KEBProject.repository.UserRepository;
 import com.example.KEBProject.service.ExpertListService;
+import com.example.KEBProject.service.ExpertService;
 import com.example.KEBProject.service.InspectionService;
+import com.example.KEBProject.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.sql.Timestamp;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/expert")
@@ -31,6 +37,9 @@ public class    SearchlistController {
     private ExpertListService expertListService;
     @Autowired
     private InspectionService inspectionService;
+    @Autowired
+    private UserService userService;
+
 
     @GetMapping("/list")
     public ResponseEntity<Map<String, Object>> tests(@ModelAttribute("inspectionDTO")InspectionDTO inspectionDTO, Model model) {
@@ -44,7 +53,6 @@ public class    SearchlistController {
         //http://localhost:8081/matching/inspectionInfo?customerId=ss&brand=b&model=m&place=p&inspectDateTime=2024-08-05T10%3A30
     }
 
-
     @GetMapping("/expertDetails")
     public ResponseEntity<Map<String, Object>> expertInfo(
             @RequestParam("userId") String userId,
@@ -52,22 +60,42 @@ public class    SearchlistController {
             @RequestParam("model") String model,
             @RequestParam("brand") String brand,
             @RequestParam("place") String place,
-            @RequestParam("inspectDateTime") Timestamp inspectDateTime,
+            @RequestParam("inspectDateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime inspectDateTime,
             HttpSession session) {
 
         User user = (User) session.getAttribute("user");
 
+        Timestamp timestamp = Timestamp.valueOf(inspectDateTime);
+
+        Optional<ExpertDTO> expertOptional = expertListService.findByUserId(user.getUserId());
+
+
+        Map<String, Object> inspection = new HashMap<>();
+        inspection.put("engineerId", user.getUserId());
+        inspection.put("customerId", customerId);
+        inspection.put("model", model);
+        inspection.put("brand", brand);
+        inspection.put("place", place);
+        inspection.put("inspectDateTime", timestamp);
+
+        Map<String, Object> expert = new HashMap<>();
+        if (expertOptional.isPresent()) {
+            ExpertDTO expertDto = expertOptional.get();
+            expert.put("userName", expertDto.getUserName());
+            expert.put("userPhonenumber", expertDto.getUserPhonenumber());
+            expert.put("engineerProfile", expertDto.getEngineerProfile());
+            expert.put("engineerBrand", expertDto.getEngineerBrand());
+        } else {
+            expert.put("error", "Expert not found");
+        }
+
+        // Create the main response map
         Map<String, Object> response = new HashMap<>();
-        response.put("customerId", user.getUserId());
-        response.put("expertId", userId);
-        response.put("model", model);
-        response.put("brand", brand);
-        response.put("place", place);
-        response.put("inspectDateTime", inspectDateTime);
+        response.put("inspection", inspection);
+        response.put("expert", expert);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
 
     @PostMapping("/createInspection")
     public ResponseEntity<String> createInspection(@RequestBody InspectionDTO request, HttpSession session) {

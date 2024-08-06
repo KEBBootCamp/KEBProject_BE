@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 @Repository
 public interface ExpertListRepository extends JpaRepository<Expert, String> {
-    Optional<Expert> findByUserUserId(String userId);
+    Optional<Expert> findByUser_UserId(String userId);
 }

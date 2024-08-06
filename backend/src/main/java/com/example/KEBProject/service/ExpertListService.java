@@ -23,11 +23,6 @@ public class ExpertListService {
     @Autowired
     private UserRepository userRepository;
 
-    public ExpertListService(ExpertListRepository expertListRepository, UserRepository userRepository) {
-        this.expertListRepository = expertListRepository;
-        this.userRepository = userRepository;
-    }
-
     public List<ExpertDTO> showExpertsDto(String brand) {
         List<Expert> experts = expertListRepository.findAll();
 
@@ -43,17 +38,17 @@ public class ExpertListService {
     }
 
 
-    public ExpertDTO findByUserId(String userId) {
-        Optional<Expert> expert = expertListRepository.findByUserUserId(userId);
+    public Optional<ExpertDTO> findByUserId(String userId) {
+        Optional<Expert> expert = expertListRepository.findByUser_UserId(userId);
         Optional<User> user = userRepository.findById(userId);
 
         if (expert.isPresent() && user.isPresent()) {
             Expert expertEntity = expert.get();
             User userEntity = user.get();
-
-            return new ExpertDTO(expertEntity, userEntity);
+            ExpertDTO expertDTO = new ExpertDTO(expertEntity, userEntity);
+            return Optional.of(expertDTO);
         } else {
-            return null;
+            return Optional.empty();
         }
     }
 
