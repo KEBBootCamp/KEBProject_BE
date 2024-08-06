@@ -1,0 +1,101 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"32f7ff8e-e30f-4969-b0f1-220444411687\" name=\"Changes\" comment=\"검수 조건 값 json 리턴\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.lock\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/fileHashes.lock\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/resourceHashesCache.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/resourceHashesCache.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/InspectionController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/InspectionController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/SearchlistController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/SearchlistController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/UserController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/UserController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ExpertDTO.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ExpertDTO.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Expert.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Expert.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/src/main/resources/templates/join.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/src/main/resources/templates/join.html\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$/backend\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand />\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"HTML File\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"TC-6-1_expertlist_expertInfo\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;SeoGyeongWon&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/Mariojung123/KEBProject_BE.git&quot;,\r\n    &quot;accountId&quot;: &quot;d097704a-0c46-40d9-854d-5b7204e098a4&quot;\r\n  }\r\n}</component>\r\n  <component name=\"KubernetesApiPersistence\">{}</component>\r\n  <component name=\"KubernetesApiProvider\">{\r\n  &quot;isMigrated&quot;: true\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2jimHmQurFUj4u5G3IG12LTGtk6\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,\r\n    &quot;Gradle.Build backend.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.C:/KEB_Back/backend/build.gradle.executor&quot;: &quot;Run&quot;,\r\n    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,\r\n    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,\r\n    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,\r\n    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;Spring Boot.KebProjectApplication.executor&quot;: &quot;Run&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;mysql&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"KebProjectApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"KEBProject.main\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.KEBProject.KebProjectApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"32f7ff8e-e30f-4969-b0f1-220444411687\" name=\"Changes\" comment=\"\" />\r\n      <created>1721878187760</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1721878187760</updated>\r\n      <workItem from=\"1721878190428\" duration=\"467000\" />\r\n      <workItem from=\"1721879339781\" duration=\"766000\" />\r\n      <workItem from=\"1721880125738\" duration=\"602000\" />\r\n      <workItem from=\"1722230540542\" duration=\"9984000\" />\r\n      <workItem from=\"1722303076235\" duration=\"13986000\" />\r\n      <workItem from=\"1722470844603\" duration=\"10235000\" />\r\n      <workItem from=\"1722595123407\" duration=\"6544000\" />\r\n      <workItem from=\"1722604865903\" duration=\"6410000\" />\r\n      <workItem from=\"1722816152627\" duration=\"19554000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"6-1, 7머지 후 커밋\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1721880064417</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1721880064417</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"검수 조건 값 json 리턴\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1722842995102</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1722842995102</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"6-1, 7머지 후 커밋\" />\r\n    <MESSAGE value=\"brand, DateTime 컬럼 추가 및 저장\" />\r\n    <MESSAGE value=\"검수 조건 값 json 리턴\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"검수 조건 값 json 리턴\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java</url>\r\n          <line>145</line>\r\n          <option name=\"timeStamp\" value=\"5\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 362333b6031f25d75006413b8994c2b00d3166a1)
++++ b/.idea/workspace.xml	(date 1722930259408)
+@@ -4,7 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="32f7ff8e-e30f-4969-b0f1-220444411687" name="Changes" comment="검수 조건 값 json 리턴">
++    <list default="true" id="32f7ff8e-e30f-4969-b0f1-220444411687" name="Changes" comment="develop 풀 받기 전 커밋">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.bin" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/executionHistory/executionHistory.lock" afterDir="false" />
+@@ -13,15 +13,8 @@
+       <change beforePath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/8.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/InspectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/InspectionController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/SearchlistController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/SearchlistController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/example/KEBProject/controller/UserController.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/InspectionController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ExpertDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/dto/ExpertDTO.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Expert.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/entity/Expert.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/join.html" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -57,7 +50,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="TC-6-1_expertlist_expertInfo" />
++        <entry key="$PROJECT_DIR$" value="develop" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -169,7 +162,23 @@
+       <option name="project" value="LOCAL" />
+       <updated>1722842995102</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="develop 풀 받기 전 커밋">
++      <option name="closed" value="true" />
++      <created>1722929730071</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1722929730071</updated>
++    </task>
++    <task id="LOCAL-00004" summary="develop 풀 받기 전 커밋">
++      <option name="closed" value="true" />
++      <created>1722929755495</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1722929755495</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -180,7 +189,19 @@
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State />
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="develop" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
+           </value>
+         </entry>
+       </map>
+@@ -190,7 +211,9 @@
+     <MESSAGE value="6-1, 7머지 후 커밋" />
+     <MESSAGE value="brand, DateTime 컬럼 추가 및 저장" />
+     <MESSAGE value="검수 조건 값 json 리턴" />
+-    <option name="LAST_COMMIT_MESSAGE" value="검수 조건 값 json 리턴" />
++    <MESSAGE value="develop 풀 받기 전 커밋" />
++    <option name="LAST_COMMIT_MESSAGE" value="develop 풀 받기 전 커밋" />
++    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
