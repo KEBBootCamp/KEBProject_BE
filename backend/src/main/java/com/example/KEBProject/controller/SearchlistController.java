@@ -67,7 +67,7 @@ public class    SearchlistController {
 
         Timestamp timestamp = Timestamp.valueOf(inspectDateTime);
 
-        Optional<ExpertDTO> expertOptional = expertListService.findByUserId(user.getUserId());
+        Optional<ExpertDTO> expertOptional = expertListService.findByUserId(userId);
 
         Map<String, Object> inspection = new HashMap<>();
         inspection.put("engineerId", userId);
