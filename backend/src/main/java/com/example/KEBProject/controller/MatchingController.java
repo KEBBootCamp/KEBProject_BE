@@ -33,17 +33,22 @@ public class MatchingController {
                                        @RequestParam("model") String model,
                                        @RequestParam("place") String place,
                                        @RequestParam("inspectDateTime") String inspectDateTime,
-                                       HttpSession session) {
+                                       HttpSession session,
+                                       RedirectAttributes redirectAttributes) {
 
         if (customerId == null || customerId.isEmpty() ||
                 model == null || model.isEmpty() ||
                 brand == null || brand.isEmpty() ||
                 place == null || place.isEmpty()) {
-            return "expertNotFound"; // 필수 매개변수가 없을 경우 처리
+            return "redirect:/expert/expertNotFound"; // 필수 매개변수가 없을 경우 처리
         }
 
-
         User user = (User) session.getAttribute("user");
+
+        if (user == null) {
+            return "redirect:/error"; // 또는 적절한 오류 처리
+        }
+
         InspectionDTO inspectionDTO = new InspectionDTO();
         inspectionDTO.setCustomerId(user.getUserId());
         inspectionDTO.setModel(model);
@@ -55,9 +60,12 @@ public class MatchingController {
         Timestamp timestamp = Timestamp.valueOf(localDateTime);
         inspectionDTO.setInspectDate(timestamp);
 
-        // 성공 메시지를 반환하거나 적절한 처리를 수행
+        redirectAttributes.addFlashAttribute("inspectionDTO", inspectionDTO);
+
+
         return "redirect:/expert/list";
     }
+
 
     //TC-4 검수 조건 검색
 //    @GetMapping("/matching")

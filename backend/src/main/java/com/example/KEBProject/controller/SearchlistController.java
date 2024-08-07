@@ -42,7 +42,7 @@ public class    SearchlistController {
 
 
     @GetMapping("/list")
-    public ResponseEntity<Map<String, Object>> tests(@ModelAttribute("inspectionDTO")InspectionDTO inspectionDTO, Model model) {
+    public ResponseEntity<Map<String, Object>> tests(@ModelAttribute("inspectionDTO")InspectionDTO inspectionDTO) {
         Map<String, Object> response = new HashMap<>();
         response.put("inspectionDTO", inspectionDTO);
 
@@ -69,10 +69,9 @@ public class    SearchlistController {
 
         Optional<ExpertDTO> expertOptional = expertListService.findByUserId(user.getUserId());
 
-
         Map<String, Object> inspection = new HashMap<>();
-        inspection.put("engineerId", user.getUserId());
-        inspection.put("customerId", customerId);
+        inspection.put("engineerId", userId);
+        inspection.put("customerId", user.getUserId());
         inspection.put("model", model);
         inspection.put("brand", brand);
         inspection.put("place", place);
@@ -89,7 +88,6 @@ public class    SearchlistController {
             expert.put("error", "Expert not found");
         }
 
-        // Create the main response map
         Map<String, Object> response = new HashMap<>();
         response.put("inspection", inspection);
         response.put("expert", expert);
