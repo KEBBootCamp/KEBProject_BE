@@ -36,9 +36,18 @@ public class MyPageController {
   @ResponseBody
   public ResponseEntity<Map<String, Object>> customerMypage(HttpSession session) {
     Map<String, Object> response = new HashMap<>();
-    User user = (User) session.getAttribute("user");
-    if (user != null) {
-      response.put("user", user);
+    User sessionUser  = (User) session.getAttribute("user");
+
+    if (sessionUser  != null) {
+
+      User user = userService.findById(sessionUser.getUserId());
+
+      Map<String, Object> userData = new HashMap<>();
+
+      userData.put("userName", user.getUserName());
+      userData.put("isExpert", user.getIsExpert());
+
+      response.put("user", userData);
 
       // 고객이 신청한 검수 내역
       List<Inspection> customerInspection = inspectionService.getInspectionsForCustomer(user.getUserId());
@@ -46,7 +55,6 @@ public class MyPageController {
       List<Map<String, Object>> inspectionsResponse = new ArrayList<>();
       for (Inspection inspection : customerInspection) {
         Map<String, Object> inspectionData = new HashMap<>();
-        inspectionData.put("matchingId", inspection.getMatchingId());
         inspectionData.put("brand", inspection.getBrand());
         inspectionData.put("model", inspection.getModel());
         inspectionData.put("place", inspection.getPlace());
@@ -58,9 +66,8 @@ public class MyPageController {
 
         if (engineer != null) {
           Map<String, Object> engineerData = new HashMap<>();
-          engineerData.put("userId", engineer.getUserId());
           engineerData.put("userName", engineer.getUserName());
-          engineerData.put("userPhonenumber", engineer.getUserPhonenumber());
+
           inspectionData.put("expert", engineerData);
         } else {
           inspectionData.put("expert", null);
@@ -71,7 +78,7 @@ public class MyPageController {
 
       response.put("inspections", inspectionsResponse);
     } else {
-      response.put("user", null);
+      response.put("message", "지정된 사용자를 찾을 수 없습니다");
     }
     return ResponseEntity.ok(response);
   }
@@ -83,12 +90,20 @@ public class MyPageController {
     User user = (User) session.getAttribute("user");
 
     if (user != null && user.getIsExpert()) {
-      response.put("user", user);
+      Expert expert = expertService.getExpertById(user.getUserId());
+
+      ExpertDTO expertDTO = new ExpertDTO(expert, user);
+      Map<String, Object> expertData = new HashMap<>();
+
+      expertData.put("userName", expertDTO.getUserName());
+      expertData.put("isExpert", expertDTO.getIsExpert());
+
+      response.put("message", "지정된 사용자를 찾을 수 없습니다.");
     }
     return ResponseEntity.ok(response);
   }
 
-  //전문가 개인정보 수정
+  //전문가 개인정보 수정 페이지
   @GetMapping("/edit")
   @ResponseBody
   public ResponseEntity<Map<String, Object>> editProfile(HttpSession session) {
@@ -97,12 +112,22 @@ public class MyPageController {
 
     if (user != null && user.getIsExpert()) {
       Expert expert = expertService.getExpertById(user.getUserId());
-      response.put("expert", expert);
+
+      ExpertDTO expertDTO  = new ExpertDTO(expert, user);
+
+      Map<String, Object> expertData = new HashMap<>();
+      expertData.put("engineerCareer",expertDTO.getEngineerCareer());
+      expertData.put("engineerBrand",expertDTO.getEngineerBrand());
+      expertData.put("engineerProfile",expertDTO.getEngineerProfile());
+      expertData.put("userPhonenumber",expertDTO.getUserPhonenumber());
+
+      response.put("expert", expertData);
       return ResponseEntity.ok(response);
     }
-    response.put("message", "User is not an expert or not logged in.");
+    response.put("message", "전문가가 아니거나 로그인되지 않았습니다.");
     return ResponseEntity.badRequest().body(response);
   }
+
 
   @PutMapping("/update")
   @ResponseBody
@@ -120,6 +145,9 @@ public class MyPageController {
       expert.setEngineerCareer(expertDTO.getEngineerCareer());
       expert.setEngineerBrand(expertDTO.getEngineerBrand());
       expert.setEngineerProfile(expertDTO.getEngineerProfile());
+      expert.getUser().setUserPhonenumber(expertDTO.getUserPhonenumber());
+
+      currentUser.setUserPhonenumber(expertDTO.getUserPhonenumber());
 
       expertService.updateExpert(expert);
       session.setAttribute("user", currentUser);
