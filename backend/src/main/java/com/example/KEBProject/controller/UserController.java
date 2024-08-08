@@ -24,6 +24,9 @@ public class UserController {
 
     @PostMapping("/join")
     public ResponseEntity<String> join(@RequestBody UserDTO userDTO) {
+        if(userService.existsByUserId(userDTO.getUserId())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("User already exists");
+        }
         User user = new User();
         user.setUserId(userDTO.getUserId());
         user.setUserPwd(userDTO.getUserPwd());
@@ -36,6 +39,10 @@ public class UserController {
 
     @PostMapping("/expertjoin")
     public ResponseEntity<String> expertJoin(@RequestBody ExpertDTO expertDTO) {
+        if(userService.existsByUserId(expertDTO.getUserId())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("User already exists");
+        }
+
         User user = new User();
         user.setUserId(expertDTO.getUserId());
         user.setUserPwd(expertDTO.getUserPwd());

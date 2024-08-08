@@ -34,4 +34,9 @@ public class UserService {
     public User updateUser(User user) {
         return userRepository.save(user);
     }
+
+    //유저 로그인 중복 방지
+    public boolean existsByUserId(String userId) {
+        return userRepository.existsByUserId(userId);
+    }
 }

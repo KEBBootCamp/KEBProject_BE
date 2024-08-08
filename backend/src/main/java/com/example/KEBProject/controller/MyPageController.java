@@ -107,9 +107,7 @@ public class MyPageController {
   @PutMapping("/update")
   @ResponseBody
   public ResponseEntity<Map<String, Object>> updateProfile(
-      @RequestParam Integer engineerCareer,
-      @RequestParam String engineerBrand,
-      @RequestParam String engineerProfile,
+      @RequestBody ExpertDTO expertDTO,
       HttpSession session) {
 
     Map<String, Object> response = new HashMap<>();
@@ -119,9 +117,9 @@ public class MyPageController {
 
       Expert expert = expertService.getExpertById(currentUser.getUserId());
 
-      expert.setEngineerCareer(engineerCareer);
-      expert.setEngineerBrand(engineerBrand);
-      expert.setEngineerProfile(engineerProfile);
+      expert.setEngineerCareer(expertDTO.getEngineerCareer());
+      expert.setEngineerBrand(expertDTO.getEngineerBrand());
+      expert.setEngineerProfile(expertDTO.getEngineerProfile());
 
       expertService.updateExpert(expert);
       session.setAttribute("user", currentUser);
@@ -133,6 +131,5 @@ public class MyPageController {
     response.put("message", "User is not an expert or not logged in.");
     return ResponseEntity.badRequest().body(response);
   }
-
 
 }

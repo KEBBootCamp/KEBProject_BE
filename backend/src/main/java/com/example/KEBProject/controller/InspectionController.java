@@ -72,8 +72,10 @@ public class InspectionController {
 
 
   // /accept URL 매핑시
-  @PostMapping("/accept/{matchingId}")
-  public ResponseEntity<Map<String, String>> checkInspection(@PathVariable int matchingId) {
+  @PostMapping("/accept")
+  public ResponseEntity<Map<String, String>> checkInspection(@RequestBody Inspection request) {
+
+    int matchingId = request.getMatchingId();
     Inspection inspection = inspectionService.getInspectionById(matchingId);
     if (inspection != null) {
       if(inspection.getChecked()!=null) {
@@ -85,8 +87,9 @@ public class InspectionController {
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("status", "failed"));
   }
 
-  @PostMapping("/reject/{matchingId}")
-  public ResponseEntity<Map<String, String>> rejectInspection(@PathVariable int matchingId) {
+  @PostMapping("/reject")
+  public ResponseEntity<Map<String, String>> rejectInspection(@RequestBody Inspection request) {
+    int matchingId = request.getMatchingId();
     Inspection inspection = inspectionService.getInspectionById(matchingId);
     if (inspection != null) {
       if(inspection.getChecked()!=null) {
@@ -98,8 +101,9 @@ public class InspectionController {
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("status", "failed"));
   }
 
-  @PostMapping("/complete/{matchingId}")
-  public ResponseEntity<Map<String, String>> completeInspection(@PathVariable int matchingId) {
+  @PostMapping("/complete")
+  public ResponseEntity<Map<String, String>> completeInspection(@RequestBody Inspection request) {
+    int matchingId = request.getMatchingId();
     Inspection inspection = inspectionService.getInspectionById(matchingId);
     if (inspection != null) {
       if(inspection.getChecked() != true || inspection.getComplete() != false) {
