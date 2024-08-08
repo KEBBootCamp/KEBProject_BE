@@ -41,18 +41,6 @@ public class    SearchlistController {
     private UserService userService;
 
 
-    @GetMapping("/list")
-    public ResponseEntity<Map<String, Object>> tests(@ModelAttribute("inspectionDTO")InspectionDTO inspectionDTO) {
-        Map<String, Object> response = new HashMap<>();
-        response.put("inspectionDTO", inspectionDTO);
-
-        List<ExpertDTO> expertDto = expertListService.showExpertsDto(inspectionDTO.getBrand());
-        response.put("expertDto", expertDto);
-
-        return ResponseEntity.ok(response);
-        //http://localhost:8081/matching/inspectionInfo?customerId=ss&brand=b&model=m&place=p&inspectDateTime=2024-08-05T10%3A30
-    }
-
     @GetMapping("/expertDetails")
     public ResponseEntity<Map<String, Object>> expertInfo(
             @RequestParam("userId") String userId,

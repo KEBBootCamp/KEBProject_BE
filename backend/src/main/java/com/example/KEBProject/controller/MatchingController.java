@@ -1,11 +1,15 @@
 package com.example.KEBProject.controller;
 
+import com.example.KEBProject.dto.ExpertDTO;
 import com.example.KEBProject.dto.InspectionDTO;
 import com.example.KEBProject.entity.Inspection;
 import com.example.KEBProject.entity.User;
+import com.example.KEBProject.service.ExpertListService;
 import com.example.KEBProject.service.InspectionService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,38 +19,41 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class MatchingController {
 
-    private final InspectionService inspectionService;
     @Autowired
-    public MatchingController(InspectionService inspectionService) {
-        this.inspectionService = inspectionService;
-    }
+    private ExpertListService expertListService;
 
     //TC -4 검수 조건 검색 전달
     @GetMapping("/matching/inspectionInfo")
-    public String submitInspectionForm(@RequestParam("customerId") String customerId,
-                                       @RequestParam("brand") String brand,
-                                       @RequestParam("model") String model,
-                                       @RequestParam("place") String place,
-                                       @RequestParam("inspectDateTime") String inspectDateTime,
-                                       HttpSession session,
-                                       RedirectAttributes redirectAttributes) {
-
+    public ResponseEntity<Map<String, Object>> submitInspectionForm(@RequestParam("customerId") String customerId,
+                                                                    @RequestParam("brand") String brand,
+                                                                    @RequestParam("model") String model,
+                                                                    @RequestParam("place") String place,
+                                                                    @RequestParam("inspectDateTime") String inspectDateTime,
+                                                                    HttpSession session,
+                                                                    RedirectAttributes redirectAttributes) {
+        Map<String, Object> response = new HashMap<>();
         if (customerId == null || customerId.isEmpty() ||
                 model == null || model.isEmpty() ||
                 brand == null || brand.isEmpty() ||
                 place == null || place.isEmpty()) {
-            return "redirect:/expert/expertNotFound"; // 필수 매개변수가 없을 경우 처리
+            response.put("message", "Param Null or Empty");
+            //status 400
+            return ResponseEntity.badRequest().body(response);
         }
 
         User user = (User) session.getAttribute("user");
 
         if (user == null) {
-            return "redirect:/error"; // 또는 적절한 오류 처리
+            response.put("message", "User is not an expert or not logged in.");
+            // status 401
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
 
         InspectionDTO inspectionDTO = new InspectionDTO();
@@ -60,10 +67,14 @@ public class MatchingController {
         Timestamp timestamp = Timestamp.valueOf(localDateTime);
         inspectionDTO.setInspectDate(timestamp);
 
-        redirectAttributes.addFlashAttribute("inspectionDTO", inspectionDTO);
+        response.put("message", "Success");
+        response.put("inspectionDTO", inspectionDTO);
+
+        List<ExpertDTO> expertDto = expertListService.showExpertsDto(inspectionDTO.getBrand());
+        response.put("expertDto", expertDto);
 
 
-        return "redirect:/expert/list";
+        return ResponseEntity.ok(response);
     }
 
 
