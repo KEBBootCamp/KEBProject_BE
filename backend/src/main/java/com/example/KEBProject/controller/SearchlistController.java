@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.swing.text.html.Option;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,12 +48,29 @@ public class    SearchlistController {
             @RequestParam("model") String model,
             @RequestParam("brand") String brand,
             @RequestParam("place") String place,
-            @RequestParam("inspectDateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime inspectDateTime,
+            @RequestParam("inspectDate") String inspectDate,
             HttpSession session) {
+        Map<String, Object> response = new HashMap<>();
+
+        if (    model == null || model.isEmpty() ||
+                brand == null || brand.isEmpty() ||
+                inspectDate == null || inspectDate.isEmpty() ||
+                place == null || place.isEmpty()) {
+            response.put("message", "Param Null or Empty");
+            //status 400
+            return ResponseEntity.badRequest().body(response);
+        }
 
         User user = (User) session.getAttribute("user");
+        if (user == null) {
+            response.put("message", "User is not an expert or not logged in.");
+            // status 401
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+        }
 
-        Timestamp timestamp = Timestamp.valueOf(inspectDateTime);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+        LocalDateTime localDateTime = LocalDateTime.parse(inspectDate, formatter);
+        Timestamp timestamp = Timestamp.valueOf(localDateTime);
 
         Optional<ExpertDTO> expertOptional = expertListService.findByUserId(userId);
 
@@ -62,7 +80,7 @@ public class    SearchlistController {
         inspection.put("model", model);
         inspection.put("brand", brand);
         inspection.put("place", place);
-        inspection.put("inspectDateTime", timestamp);
+        inspection.put("inspectDate", timestamp);
 
         Map<String, Object> expert = new HashMap<>();
         if (expertOptional.isPresent()) {
@@ -75,7 +93,6 @@ public class    SearchlistController {
             expert.put("error", "Expert not found");
         }
 
-        Map<String, Object> response = new HashMap<>();
         response.put("inspection", inspection);
         response.put("expert", expert);
 
@@ -85,6 +102,11 @@ public class    SearchlistController {
     @PostMapping("/createInspection")
     public ResponseEntity<String> createInspection(@RequestBody InspectionDTO request, HttpSession session) {
         User user = (User) session.getAttribute("user");
+
+        if (user == null) {
+            // status 401
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User is not an expert or not logged in.");
+        }
         Inspection inspection = new Inspection();
 
         inspection.setCustomerId(user.getUserId());

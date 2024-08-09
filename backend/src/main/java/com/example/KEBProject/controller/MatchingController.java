@@ -34,12 +34,13 @@ public class MatchingController {
     public ResponseEntity<Map<String, Object>> submitInspectionForm(@RequestParam("brand") String brand,
                                                                     @RequestParam("model") String model,
                                                                     @RequestParam("place") String place,
-                                                                    @RequestParam("inspectDateTime") String inspectDateTime,
+                                                                    @RequestParam("inspectDate") String inspectDate,
                                                                     HttpSession session,
                                                                     RedirectAttributes redirectAttributes) {
         Map<String, Object> response = new HashMap<>();
         if (    model == null || model.isEmpty() ||
                 brand == null || brand.isEmpty() ||
+                inspectDate == null || inspectDate.isEmpty() ||
                 place == null || place.isEmpty()) {
             response.put("message", "Param Null or Empty");
             //status 400
@@ -61,7 +62,7 @@ public class MatchingController {
         inspectionDTO.setPlace(place);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-        LocalDateTime localDateTime = LocalDateTime.parse(inspectDateTime, formatter);
+        LocalDateTime localDateTime = LocalDateTime.parse(inspectDate, formatter);
         Timestamp timestamp = Timestamp.valueOf(localDateTime);
         inspectionDTO.setInspectDate(timestamp);
 

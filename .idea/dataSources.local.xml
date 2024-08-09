@@ -19,5 +19,9 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="kgu@localhost" uuid="f0806e28-de7a-483b-9814-a0333de37cde">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" />
+      <schema-mapping />
+    </data-source>
   </component>
 </project>
