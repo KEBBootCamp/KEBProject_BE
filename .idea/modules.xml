@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KEBProject.main.iml" filepath="$PROJECT_DIR$/.idea/modules/KEBProject.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/KEB_Back.iml" filepath="$PROJECT_DIR$/.idea/KEB_Back.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.example.KEBProject.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.example.KEBProject.main.iml" />
     </modules>
   </component>
 </project>
