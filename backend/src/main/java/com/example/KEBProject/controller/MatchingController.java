@@ -31,16 +31,14 @@ public class MatchingController {
 
     //TC -4 검수 조건 검색 전달
     @GetMapping("/matching/inspectionInfo")
-    public ResponseEntity<Map<String, Object>> submitInspectionForm(@RequestParam("customerId") String customerId,
-                                                                    @RequestParam("brand") String brand,
+    public ResponseEntity<Map<String, Object>> submitInspectionForm(@RequestParam("brand") String brand,
                                                                     @RequestParam("model") String model,
                                                                     @RequestParam("place") String place,
                                                                     @RequestParam("inspectDateTime") String inspectDateTime,
                                                                     HttpSession session,
                                                                     RedirectAttributes redirectAttributes) {
         Map<String, Object> response = new HashMap<>();
-        if (customerId == null || customerId.isEmpty() ||
-                model == null || model.isEmpty() ||
+        if (    model == null || model.isEmpty() ||
                 brand == null || brand.isEmpty() ||
                 place == null || place.isEmpty()) {
             response.put("message", "Param Null or Empty");

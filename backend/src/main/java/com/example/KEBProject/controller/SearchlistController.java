@@ -44,7 +44,6 @@ public class    SearchlistController {
     @GetMapping("/expertDetails")
     public ResponseEntity<Map<String, Object>> expertInfo(
             @RequestParam("userId") String userId,
-            @RequestParam("customerId") String customerId,
             @RequestParam("model") String model,
             @RequestParam("brand") String brand,
             @RequestParam("place") String place,
