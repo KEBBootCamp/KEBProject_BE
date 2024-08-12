@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32f7ff8e-e30f-4969-b0f1-220444411687" name="Changes" comment="유저 아이디 세션 연동">
+    <list default="true" id="32f7ff8e-e30f-4969-b0f1-220444411687" name="Changes" comment="중복 login 수정">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6d1bdbb0-3462-4fb9-ac27-582371e9b36c/storage_v2/_src_/schema/kgu.mZ4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f0806e28-de7a-483b-9814-a0333de37cde.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/MatchingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/MatchingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/SearchlistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/KEBProject/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +150,10 @@
       <workItem from="1723165865291" duration="5809000" />
       <workItem from="1723178660114" duration="279000" />
       <workItem from="1723217441722" duration="2315000" />
+      <workItem from="1723219773530" duration="185000" />
+      <workItem from="1723421927367" duration="652000" />
+      <workItem from="1723425807577" duration="2793000" />
+      <workItem from="1723444248346" duration="3254000" />
     </task>
     <task id="LOCAL-00001" summary="6-1, 7머지 후 커밋">
       <option name="closed" value="true" />
@@ -233,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723178788564</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="inspectDate request 수정">
+      <option name="closed" value="true" />
+      <created>1723219918842</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1723219918842</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +272,9 @@
     <MESSAGE value="에러 상태 400, 401 추가" />
     <MESSAGE value="로그인 아이디 중복방지 기능추가" />
     <MESSAGE value="유저 아이디 세션 연동" />
-    <option name="LAST_COMMIT_MESSAGE" value="유저 아이디 세션 연동" />
+    <MESSAGE value="inspectDate request 수정" />
+    <MESSAGE value="중복 login 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="중복 login 수정" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

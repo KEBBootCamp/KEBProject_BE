@@ -67,6 +67,17 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody UserDTO userDTO, HttpSession session) {
         Map<String, Object> response = new HashMap<>();
+
+        User userCheck = (User) session.getAttribute("user");
+
+        if (userCheck != null) {
+            response.put("message", "User already login. Logout First.");
+
+            // status 409 Conflict
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+
+        }
+
         User user = userService.findById(userDTO.getUserId());
         if (user != null && user.getUserPwd().equals(userDTO.getUserPwd())) {
             session.setAttribute("user", user); // 세션에 사용자 정보 저장
