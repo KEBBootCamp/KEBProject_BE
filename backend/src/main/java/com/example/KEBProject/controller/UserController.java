@@ -71,18 +71,22 @@ public class UserController {
         User userCheck = (User) session.getAttribute("user");
 
         if (userCheck != null) {
-            response.put("message", "User already login. Logout First.");
+            response.put("message", "User already logged in. Logout first.");
 
             // status 409 Conflict
             return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
-
         }
 
         User user = userService.findById(userDTO.getUserId());
         if (user != null && user.getUserPwd().equals(userDTO.getUserPwd())) {
             session.setAttribute("user", user); // 세션에 사용자 정보 저장
+            response.put("status", "success");
             response.put("message", "Login successful");
-            response.put("isExpert", user.getIsExpert());
+
+            Map<String, Object> userInfo = new HashMap<>();
+            userInfo.put("isExpert", user.getIsExpert());
+
+            response.put("user", userInfo);
             return ResponseEntity.ok(response);
         } else {
             response.put("message", "Invalid credentials");
