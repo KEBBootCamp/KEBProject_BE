@@ -98,7 +98,10 @@ public class MyPageController {
       expertData.put("userName", expertDTO.getUserName());
       expertData.put("isExpert", expertDTO.getIsExpert());
 
-      response.put("message", "지정된 사용자를 찾을 수 없습니다.");
+      response.put("expert",expertData);
+    }
+     else{
+       response.put("message", "지정된 사용자를 찾을 수 없습니다.");
     }
     return ResponseEntity.ok(response);
   }
