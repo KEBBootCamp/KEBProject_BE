@@ -67,6 +67,9 @@ public class MyPageController {
         if (engineer != null) {
           Map<String, Object> engineerData = new HashMap<>();
           engineerData.put("userName", engineer.getUserName());
+          engineerData.put("userPhonenumber",engineer.getUserPhonenumber());
+          engineerData.put("engineerProfile",engineer.getExpert().getEngineerProfile());
+          engineerData.put("engineerBrand",engineer.getExpert().getEngineerBrand());
 
           inspectionData.put("expert", engineerData);
         } else {
