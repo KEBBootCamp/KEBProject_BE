@@ -55,6 +55,7 @@ public class InspectionController {
         inspectionData.put("place", inspection.getPlace());
         inspectionData.put("inspectDate", inspection.getInspectDate());
       } else if (inspection.getChecked() == true) {
+        inspectionData.put("checked", true);
         inspectionData.put("complete", inspection.getComplete());
         inspectionData.put("matchingId", inspection.getMatchingId());
         inspectionData.put("brand", inspection.getBrand());
